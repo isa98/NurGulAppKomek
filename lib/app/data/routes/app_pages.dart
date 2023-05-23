@@ -1,0 +1,23 @@
+import 'package:get/get.dart';
+
+import '../../app.dart';
+
+class AppPages {
+  static var list = [
+    GetPage(
+      name: AppRoutes.dashboard,
+      page: () => const Dashboard(),
+      bindings: [
+        DashboardBinding(),
+        CategoryBinding(),
+        LoginStatusBinding(),
+      ],
+    ),
+    GetPage(name: AppRoutes.login, page: () => const LoginScreen()),
+    GetPage(name: AppRoutes.register, page: () => const RegisterScreen()),
+    GetPage(name: AppRoutes.productList, page: () => ProductListScreen()),
+    GetPage(name: AppRoutes.orders, page: () => const OrdersScreen()),
+    GetPage(name: AppRoutes.addresses, page: () => const AddressesScreen()),
+    GetPage(name: AppRoutes.cms, page: () => const CMSScreen()),
+  ];
+}

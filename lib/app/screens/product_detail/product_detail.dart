@@ -1,0 +1,2 @@
+library product_detail;
+

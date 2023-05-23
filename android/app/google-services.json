@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "675104534358",
+    "project_id": "nurgul-app-d61e3",
+    "storage_bucket": "nurgul-app-d61e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675104534358:android:f254bf61fc8f3706cdf0f7",
+        "android_client_info": {
+          "package_name": "com.nurgul.store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675104534358-eite79m9nefne3qjtvpj99j41cp14bqk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_GLgJXqR5EZ6MI4qAJnHm4UgNsvQasUA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675104534358-eite79m9nefne3qjtvpj99j41cp14bqk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

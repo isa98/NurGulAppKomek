@@ -1,0 +1,83 @@
+name: nurgul
+description: A flower a commerce application.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.4 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.5
+  get: ^4.6.5
+  dio: ^5.1.1
+  intl: ^0.18.1
+  shared_preferences: ^2.1.0
+  mask_text_input_formatter: ^2.4.0
+  url_launcher: ^6.1.10
+  package_info_plus: ^3.1.1
+  flutter_html: ^3.0.0-alpha.3
+  flutter_screenutil: ^5.7.0
+  # flutter_svg: ^2.0.5
+  cached_network_image: ^3.2.3
+  device_info_plus: ^8.2.1
+  flutter_staggered_grid_view: ^0.6.2
+  loader_overlay: ^2.2.0
+  animate_do: ^3.0.2
+  flutter_pagewise: ^2.0.4
+  firebase_messaging: ^14.4.1
+  firebase_core: ^2.10.0
+  flutter_local_notifications: ^14.0.0
+  path_provider: ^2.0.14
+  flutter_native_splash: ^2.2.19
+  flutter_launcher_icons: ^0.13.1
+  unicons: ^2.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.1
+
+flutter_native_splash:
+  image: assets/logo/logo.png
+  color: "#CC1055"  
+  android_12: 
+    color: "#CC1055"
+    image: assets/logo/logo.png
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/logo/logo.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/flags/
+    - assets/logo/
+    - assets/images/
+    - assets/icons/
+
+  fonts:
+    - family: NavbarIcons
+      fonts:
+        - asset: assets/fonts/NavbarIcons.ttf
+    - family: OpenSans
+      fonts:
+        - asset: assets/fonts/OpenSans/OpenSans-Medium.ttf
+        - asset: assets/fonts/OpenSans/OpenSans-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/OpenSans/OpenSans-Light.ttf
+          weight: 300
+    - family: Manrope
+      fonts:
+        - asset: assets/fonts/Manrope/Manrope-Medium.ttf
+        - asset: assets/fonts/Manrope/Manrope-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/Manrope/Manrope-Light.ttf
+          weight: 300
