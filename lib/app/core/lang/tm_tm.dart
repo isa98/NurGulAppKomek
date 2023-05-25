@@ -86,5 +86,6 @@ const Map<String, String> tmTM = {
   'settings_delete': 'Delete',
   'settings_profile': 'Profil Tazele',
   'settings_profile_info': 'Profil Maglumatlary',
-  'cart_item_removed_from_card':'Haryt sebedimden aýryldy',
+  'cart_item_removed_from_card': 'Haryt sebedimden aýryldy',
+  'product_remove_from_cart': 'Sebetden poz'
 };

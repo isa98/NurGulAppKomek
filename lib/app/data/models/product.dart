@@ -56,26 +56,31 @@ class ProductModel {
     inStock = json['in_stock'];
     isSaved = json['is_saved'];
     isWishlisted = json['is_wishlisted'] ?? false;
-    isItemInCart = json['is_item_in_cart'];
+    isItemInCart = json['is_item_in_cart'] ?? false;
     showQuantityChanger = json['show_quantity_changer'];
     isNew = isNullOrEmpty(json['new']) ? false : json['new'] == 1;
-    isFeatured = isNullOrEmpty(json['featured']) ? false : json['featured'] == 1;
+    isFeatured =
+        isNullOrEmpty(json['featured']) ? false : json['featured'] == 1;
 
-    if (!isNullOrEmpty(json['formatted_special_price']) && !isNullOrEmpty(json['formatted_regular_price'])) {
+    if (!isNullOrEmpty(json['formatted_special_price']) &&
+        !isNullOrEmpty(json['formatted_regular_price'])) {
       hasDiscount = true;
 
       formattedSpecialPrice = json['formatted_special_price'];
       formattedRegularPrice = json['formatted_regular_price'];
 
-      final double specialPrice = double.tryParse(json['special_price'].toString()) ?? 0.0;
-      final double regularPrice = double.tryParse(json['regular_price'].toString()) ?? 0.0;
+      final double specialPrice =
+          double.tryParse(json['special_price'].toString()) ?? 0.0;
+      final double regularPrice =
+          double.tryParse(json['regular_price'].toString()) ?? 0.0;
 
       double discountRt = (100 * (regularPrice - specialPrice)) / regularPrice;
       discountRate = '${discountRt.toStringAsFixed(2)}%';
     }
   }
 
-  static List<ProductModel> listFromJson(list) => List<ProductModel>.from(list.map((x) => ProductModel.fromJson(x)));
+  static List<ProductModel> listFromJson(list) =>
+      List<ProductModel>.from(list.map((x) => ProductModel.fromJson(x)));
 }
 
 class ProductAttribute {

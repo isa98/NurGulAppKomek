@@ -1,5 +1,5 @@
 class Constants {
-  static const baseUrl = 'http://216.250.10.230/api';
+  static const baseUrl = 'https://nurgul.com.tm/api';
 
   static const pageSize = 10;
 

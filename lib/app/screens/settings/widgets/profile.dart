@@ -14,7 +14,6 @@ class ProfileWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetX<SettingsController>(
-      init: SettingsController(),
       builder: (sc) => sc.state.isLoading.value
           ? const CustomLoader()
           : SingleChildScrollView(
@@ -25,18 +24,51 @@ class ProfileWidget extends StatelessWidget {
                     onTap: () => sc.onEditProfileTapped(context),
                     child: Container(
                       width: MediaQuery.of(context).size.width,
-                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 24),
                       child: Column(
                         children: [
-                          Container(
+                          SizedBox(
                             width: 100.w,
-                            height: 126.h,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100),
-                              image: const DecorationImage(
-                                image: AssetImage('assets/icons/avatar.png'),
-                                fit: BoxFit.scaleDown,
-                              ),
+                            height: 100.h,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  width: 100.w,
+                                  height: 100.h,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(40),
+                                    color: ThemeColor.mainColorMid,
+                                  ),
+                                  alignment: Alignment.center,
+                                  clipBehavior: Clip.antiAlias,
+                                  child: const Icon(
+                                    Icons.person,
+                                    size: 100.0,
+                                    color: ThemeColor.mainColor,
+                                  ),
+                                ),
+                                Positioned(
+                                    bottom: 0.0,
+                                    right: 0.0,
+                                    child: Container(
+                                      padding: const EdgeInsets.all(8.0),
+                                      decoration: BoxDecoration(
+                                        borderRadius:
+                                            BorderRadius.circular(35.0),
+                                        // image: const DecorationImage(
+                                        //   image: AssetImage('assets/icons/avatar.png'),
+                                        //   fit: BoxFit.scaleDown,
+                                        // ),
+                                        color: ThemeColor.mainColor,
+                                      ),
+                                      child: const Icon(
+                                        Icons.edit_rounded,
+                                        color: ThemeColor.white,
+                                        size: 15.0,
+                                      ),
+                                    ))
+                              ],
                             ),
                           ),
                           // full name
@@ -45,22 +77,27 @@ class ProfileWidget extends StatelessWidget {
                               : Column(
                                   children: [
                                     Container(
-                                      margin: const EdgeInsets.only(bottom: 4, top: 14),
+                                      margin: const EdgeInsets.only(
+                                          bottom: 4, top: 14),
                                       child: Text(
                                         sc.state.user.value!.firstName,
                                         style: TextStyle(
-                                          color: Get.isDarkMode ? Colors.white : ThemeColor.lightTextColor,
+                                          color: Get.isDarkMode
+                                              ? Colors.white
+                                              : ThemeColor.lightTextColor,
                                           fontWeight: FontWeight.w600,
                                           fontSize: 16.sp,
                                         ),
                                       ),
                                     ),
-                  
+
                                     // Username
                                     Text(
                                       sc.state.user.value!.phone,
                                       style: TextStyle(
-                                        color: Get.isDarkMode ? Colors.white.withOpacity(0.6) : ThemeColor.lightTextColor,
+                                        color: Get.isDarkMode
+                                            ? Colors.white.withOpacity(0.6)
+                                            : ThemeColor.lightTextColor,
                                         fontSize: 14.sp,
                                       ),
                                       // style: Theme.of(context).textTheme.bodyMedium,
@@ -71,11 +108,14 @@ class ProfileWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                
+
                   const SizedBox(height: 32),
-                  SettingsElementWidget(text: 'settings_address'.tr, callback: () => sc.navigate(AppRoutes.addresses)),
                   SettingsElementWidget(
-                      text: 'settings_order_history'.tr, callback: () => sc.navigate(AppRoutes.orders)),
+                      text: 'settings_address'.tr,
+                      callback: () => sc.navigate(AppRoutes.addresses)),
+                  SettingsElementWidget(
+                      text: 'settings_order_history'.tr,
+                      callback: () => sc.navigate(AppRoutes.orders)),
                   SettingsElementWidget(
                     text: 'settings_lang'.tr,
                     callback: () => sc.onLanguageTapped(context),
@@ -89,7 +129,8 @@ class ProfileWidget extends StatelessWidget {
                     ),
                     child: ListTile(
                       contentPadding: const EdgeInsets.only(left: 16, right: 2),
-                      title: Text('settings_theme'.tr, style: Theme.of(context).textTheme.bodyMedium),
+                      title: Text('settings_theme'.tr,
+                          style: Theme.of(context).textTheme.bodyMedium),
                       trailing: Transform.scale(
                         scale: 1,
                         child: Platform.isAndroid
@@ -105,7 +146,9 @@ class ProfileWidget extends StatelessWidget {
                     ),
                   ),
                   // SettingsElementWidget(text: 'settings_contact'.tr, callback: () {}),
-                  SettingsElementWidget(text: 'settings_about_us'.tr, callback: () => sc.navigate(AppRoutes.cms)),
+                  SettingsElementWidget(
+                      text: 'settings_about_us'.tr,
+                      callback: () => sc.navigate(AppRoutes.cms)),
                   SettingsElementWidget(
                     text: 'settings_logout'.tr,
                     callback: () => sc.onLogoutTapped(context),

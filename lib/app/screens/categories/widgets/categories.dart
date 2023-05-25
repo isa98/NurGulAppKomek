@@ -19,28 +19,35 @@ class CategoriesWidget extends StatelessWidget {
                 itemBuilder: (context, index) {
                   final category = cc.categoryState.categories[index];
                   return Container(
-                    margin: EdgeInsets.only(top: 16, left: 0.035.sw, right: 0.035.sw),
+                    margin: EdgeInsets.only(
+                        top: 16, left: 0.035.sw, right: 0.035.sw),
                     child: Material(
                       type: MaterialType.transparency,
                       child: Ink(
                         decoration: BoxDecoration(
-                          color: Get.isDarkMode ? ThemeColor.darkMainColor : const Color.fromARGB(255, 229, 235, 230),
+                          color: Get.isDarkMode
+                              ? ThemeColor.darkMainColor
+                              : const Color.fromARGB(255, 229, 235, 230),
                           borderRadius: BorderRadius.circular(16),
                         ),
                         child: InkWell(
-                          splashColor: Get.isDarkMode ? ThemeColor.darkSplashColor : ThemeColor.lightSplashColor,
+                          splashColor: Get.isDarkMode
+                              ? ThemeColor.darkSplashColor
+                              : ThemeColor.lightSplashColor,
                           borderRadius: BorderRadius.circular(16),
                           onTap: () => cc.onCategoryTapped(category),
                           child: ListTile(
-                            contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+                            contentPadding: const EdgeInsets.symmetric(
+                                vertical: 4, horizontal: 16),
                             leading: cachedImageNetwork(
                               category.categoryIconPath,
                               BoxFit.scaleDown,
-                              BorderRadius.circular(16),
+                              BorderRadius.zero,
                               40.sp,
                               40.sp,
                             ),
-                            title: Text(category.name, style: Theme.of(context).textTheme.titleMedium),
+                            title: Text(category.name,
+                                style: Theme.of(context).textTheme.titleMedium),
                             trailing: Icon(
                               Icons.arrow_forward_ios,
                               size: 18.sp,

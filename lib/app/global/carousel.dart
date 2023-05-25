@@ -25,66 +25,48 @@ class CarouselSlider extends StatefulWidget {
 }
 
 class _CarouselSliderState extends State<CarouselSlider> {
-  final PageController _controller = PageController();
+  late final PageController _controller;
   late Timer _timer;
   int _currentIndex = 0;
 
-  void _changePage() {
-    if (_currentIndex < widget.sliders.length - 1) {
-      _currentIndex++;
-    } else {
-      _currentIndex = 0;
-    }
-
-    _controller.animateToPage(
-      _currentIndex,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.easeIn,
-    );
-  }
-
-  Widget _buildIndicator() {
-    return Center(
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: widget.sliders.map((url) {
-            int index = widget.sliders.indexOf(url);
-            return Container(
-              width: 10.w,
-              height: 10.h,
-              margin: const EdgeInsets.symmetric(horizontal: 4),
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _currentIndex == index ? widget.activeColor : widget.passiveColor,
-              ),
-            );
-          }).toList(),
+  Widget _getIndicators() {
+    return SizedBox(
+      height: 15.0,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: List.generate(
+          widget.sliders.length,
+          (index) => Container(
+            width: 10.w,
+            height: 10.h,
+            margin: const EdgeInsets.symmetric(horizontal: 4),
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: _currentIndex == index % widget.sliders.length
+                  ? widget.activeColor
+                  : widget.passiveColor,
+            ),
+          ),
         ),
       ),
     );
   }
 
-  void _startTimer() {
-    _timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
-      _changePage();
-    });
-  }
-
-  void _stopTimer() {
-    _timer.cancel();
-  }
-
   @override
   void initState() {
     super.initState();
-    _startTimer();
+    _controller = PageController();
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
+      _controller.nextPage(
+          duration: const Duration(milliseconds: 2000),
+          curve: Curves.easeInOutCubic);
+    });
   }
 
   @override
   void dispose() {
-    super.dispose();
     _timer.cancel();
+    super.dispose();
   }
 
   @override
@@ -94,20 +76,20 @@ class _CarouselSliderState extends State<CarouselSlider> {
         children: [
           PageView.builder(
             controller: _controller,
-            itemCount: widget.sliders.length,
+            // itemCount: widget.sliders.length,
             itemBuilder: (BuildContext context, int index) {
               return GestureDetector(
-                onLongPress: () {
-                  _stopTimer();
-                },
-                onLongPressUp: () {
-                  _startTimer();
-                },
+                // onLongPress: () {
+                //   _stopTimer();
+                // },
+                // onLongPressUp: () {
+                //   _startTimer();
+                // },
                 onTap: () => widget.onSliderTapped(index),
                 child: Container(
                   color: ThemeColor.white,
                   child: cachedImageNetwork(
-                    widget.sliders[index],
+                    widget.sliders[index % widget.sliders.length],
                     widget.boxFit,
                     BorderRadius.zero,
                   ),
@@ -116,7 +98,7 @@ class _CarouselSliderState extends State<CarouselSlider> {
             },
             onPageChanged: (int index) {
               setState(() {
-                _currentIndex = index;
+                _currentIndex = index % widget.sliders.length;
               });
             },
           ),
@@ -124,7 +106,7 @@ class _CarouselSliderState extends State<CarouselSlider> {
             bottom: 10,
             left: 0,
             right: 0,
-            child: _buildIndicator(),
+            child: _getIndicators(),
           ),
         ],
       ),

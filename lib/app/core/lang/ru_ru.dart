@@ -5,7 +5,8 @@ const Map<String, String> ruRu = {
   'address_address': 'Адрес',
   'address_cancel': 'Отмена',
   'address_delete_approve': 'Удалить',
-  'address_delete_warning_content': 'Вы действительно хотите удалить этот адрес ?',
+  'address_delete_warning_content':
+      'Вы действительно хотите удалить этот адрес ?',
   'address_delete_warning_title': 'Удалить адрес',
   'address_hint': 'Введите адрес.',
   'address_success_message': 'Адрес успешно добавлен',
@@ -81,10 +82,11 @@ const Map<String, String> ruRu = {
   'general_please_login': 'Пожалуйста, войдите!',
   'back': 'Назад',
   'cart_updated': 'Корзина обновлена',
-  'settings_delete_account': 'Delete account',
-  'settings_delete_account_body': 'Delete account body',
-  'settings_delete': 'Delete',
+  'settings_delete_account': 'Удалить аккаунт',
+  'settings_delete_account_body': 'Удалить информацию об аккаунте',
+  'settings_delete': 'Удалить',
   'settings_profile': 'Profil Tazele',
-  'settings_profile_info': 'Profil Maglumatlary',
-  'cart_item_removed_from_card': 'Haryt sebedimden ayryldy',
+  'settings_profile_info': 'Информация о профиле',
+  'cart_item_removed_from_card': 'Продукт был удален из корзины',
+  'product_remove_from_cart': 'Удалить из корзины'
 };

@@ -98,25 +98,44 @@ class HttpUtil {
             int? errCode = error.response?.statusCode;
             switch (errCode) {
               case 400:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Request syntax error');
+                return ErrorEntity(
+                    code: errCode,
+                    message: errorMessage ?? 'Request syntax error');
               case 401:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Permission denied');
+                return ErrorEntity(
+                    code: errCode,
+                    message: errorMessage ?? 'Permission denied');
               case 403:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Server refused to execute');
+                return ErrorEntity(
+                    code: errCode,
+                    message: errorMessage ?? 'Server refused to execute');
               case 404:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Can not reach server');
+                return ErrorEntity(
+                    code: errCode,
+                    message: errorMessage ?? 'Can not reach server');
               case 422:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Unprocessable content');
+                return ErrorEntity(
+                    code: errCode,
+                    message: errorMessage ?? 'Unprocessable content');
               case 405:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Request method is forbidden');
+                return ErrorEntity(
+                    code: errCode,
+                    message: errorMessage ?? 'Request method is forbidden');
               case 500:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Server internal error');
+                return ErrorEntity(
+                    code: errCode,
+                    message: errorMessage ?? 'Server internal error');
               case 502:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Invalid request');
+                return ErrorEntity(
+                    code: errCode, message: errorMessage ?? 'Invalid request');
               case 503:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Server hung up');
+                return ErrorEntity(
+                    code: errCode, message: errorMessage ?? 'Server hung up');
               case 505:
-                return ErrorEntity(code: errCode, message: errorMessage ?? 'Does not support HTTP protocol request');
+                return ErrorEntity(
+                    code: errCode,
+                    message: errorMessage ??
+                        'Does not support HTTP protocol request');
               default:
                 {
                   // return ErrorEntity(code: errCode, message: 'Unknown error');
@@ -188,8 +207,10 @@ class HttpUtil {
     Map<String, dynamic>? authorization = await getAuthorizationHeader();
     requestOptions.headers!.addAll(authorization);
 
-    var response =
-        await dio.get(path, queryParameters: queryParameters, options: requestOptions, cancelToken: cancelToken);
+    var response = await dio.get(path,
+        queryParameters: queryParameters,
+        options: requestOptions,
+        cancelToken: cancelToken);
     return response.data;
   }
 

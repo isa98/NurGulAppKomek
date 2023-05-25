@@ -28,6 +28,9 @@ class CartController extends GetxController {
   Future<void> add(Map<String, dynamic> params, int productId) async {
     state.cartModel.value = await CartApi.add(params, productId);
   }
+  Future<void> remove(int productId) async {
+    state.cartModel.value = await CartApi.remove(productId);
+  }
 
   Future<void> onIncDecTapped(BuildContext context, int itemId, int newQuantity) async {
     debugPrint('onIncDecTapped');
