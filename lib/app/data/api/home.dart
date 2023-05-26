@@ -14,7 +14,7 @@ class HomeApi {
   static Future<HomeModel?> get() async {
     const String fnName = 'get';
 
-    if (!isNullOrEmpty(model)) return model;
+    // if (!isNullOrEmpty(model)) return model;
 
     try {
       final Map<String, String> params = {
@@ -26,7 +26,8 @@ class HomeApi {
 
       const String path = '${Constants.baseUrl}/home';
 
-      final response = await HttpUtil().get(path: path, queryParameters: params);
+      final response =
+          await HttpUtil().get(path: path, queryParameters: params);
 
       if (response['data'] == null) return null;
 
