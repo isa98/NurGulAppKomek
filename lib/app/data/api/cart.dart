@@ -20,7 +20,8 @@ class CartApi {
 
       const String path = '${Constants.baseUrl}/customer/cart';
 
-      final response = await HttpUtil().get(path: path, queryParameters: params);
+      final response =
+          await HttpUtil().get(path: path, queryParameters: params);
 
       if (response['data'] == null) return null;
 
@@ -33,7 +34,8 @@ class CartApi {
       int? errCode = error.response?.statusCode;
 
       if (errCode == 401) {
-        showSnack('general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
       }
 
       return null;
@@ -44,7 +46,8 @@ class CartApi {
     }
   }
 
-  static Future<CartModel?> add(Map<String, dynamic> params, int productId) async {
+  static Future<CartModel?> add(
+      Map<String, dynamic> params, int productId) async {
     const String fnName = 'add';
 
     try {
@@ -68,11 +71,13 @@ class CartApi {
         // Get.offNamedUntil('/', (route) => false);
         // navigateToLoginScreen();
 
-        showSnack('general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
       }
 
       if (errCode == 405) {
-        showSnack('general_warning'.tr, 'qty_not_available'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'qty_not_available'.tr, SnackType.warning);
       }
 
       return null;
@@ -112,7 +117,8 @@ class CartApi {
       int? errCode = error.response?.statusCode;
 
       if (errCode == 401) {
-        showSnack('general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
       }
 
       return null;
@@ -129,11 +135,13 @@ class CartApi {
     try {
       debugPrint('class: $className, method: $fnName');
 
-      final String path = '${Constants.baseUrl}/customer/cart/remove/$cartItemId';
+      final String path =
+          '${Constants.baseUrl}/customer/cart/remove/$cartItemId';
 
       final response = await HttpUtil().delete(path);
 
-      showSnack('general_success'.tr, 'car_item_removed_from_card'.tr);
+      showSnack('general_success'.tr, 'cart_item_removed_from_card'.tr,
+          SnackType.warning);
 
       if (response['data'] == null) {
         return null;
@@ -146,7 +154,8 @@ class CartApi {
       int? errCode = error.response?.statusCode;
 
       if (errCode == 401) {
-        showSnack('general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
       }
 
       return null;
@@ -182,7 +191,8 @@ class CartApi {
       int? errCode = error.response?.statusCode;
 
       if (errCode == 401) {
-        showSnack('general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
       }
 
       return null;

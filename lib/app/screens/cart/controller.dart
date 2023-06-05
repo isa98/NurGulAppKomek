@@ -16,6 +16,36 @@ class CartController extends GetxController {
     super.onInit();
   }
 
+  bool isInCart(int id) {
+    if (state.cartModel.value?.vendors == null ||
+        state.cartModel.value!.vendors.isEmpty) {
+      return false;
+    } else {
+      final list = state.cartModel.value!.vendors.first.items;
+      for (var element in list) {
+        if (element.product.id == id) {
+          return true;
+        }
+      }
+      return false;
+    }
+  }
+
+  int? getCartItemId(int id) {
+    if (state.cartModel.value?.vendors == null ||
+        state.cartModel.value!.vendors.isEmpty) {
+      return null;
+    } else {
+      final list = state.cartModel.value!.vendors.first.items;
+      for (var element in list) {
+        if (element.product.id == id) {
+          return element.id;
+        }
+      }
+      return null;
+    }
+  }
+
   Future<void> get() async {
     if (!state.loginStatusController.loginStatus) return;
 
@@ -28,11 +58,13 @@ class CartController extends GetxController {
   Future<void> add(Map<String, dynamic> params, int productId) async {
     state.cartModel.value = await CartApi.add(params, productId);
   }
+
   Future<void> remove(int productId) async {
     state.cartModel.value = await CartApi.remove(productId);
   }
 
-  Future<void> onIncDecTapped(BuildContext context, int itemId, int newQuantity) async {
+  Future<void> onIncDecTapped(
+      BuildContext context, int itemId, int newQuantity) async {
     debugPrint('onIncDecTapped');
 
     if (newQuantity < 1) {
@@ -56,7 +88,8 @@ class CartController extends GetxController {
     context.loaderOverlay.hide();
   }
 
-  Future<void> onAddressSelected(BuildContext context, AddressModel address, int? selectedIndex) async {
+  Future<void> onAddressSelected(
+      BuildContext context, AddressModel address, int? selectedIndex) async {
     debugPrint('onAddressSelected ${address.id}');
 
     context.loaderOverlay.show();
@@ -85,7 +118,8 @@ class CartController extends GetxController {
     update();
   }
 
-  Future<void> onPaymentTypeSelected(BuildContext context, PaymentMethodModel method, int? selectedIndex) async {
+  Future<void> onPaymentTypeSelected(BuildContext context,
+      PaymentMethodModel method, int? selectedIndex) async {
     debugPrint('onPaymentTypeSelected ${method.method}');
 
     context.loaderOverlay.show();
@@ -119,12 +153,14 @@ class CartController extends GetxController {
       // 1. validate
       // validate address
       if (state.selectedAddressIndex.value == 0) {
-        showSnack('general_warning'.tr, 'cart_select_address'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'cart_select_address'.tr, SnackType.warning);
         return;
       }
       // validate payment
       if (state.selectedPaymentIndex.value == 0) {
-        showSnack('general_warning'.tr, 'cart_payment_type_title'.tr, SnackType.warning);
+        showSnack('general_warning'.tr, 'cart_payment_type_title'.tr,
+            SnackType.warning);
         return;
       }
 

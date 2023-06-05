@@ -20,9 +20,8 @@ class ProductCard extends StatefulWidget {
 }
 
 class _ProductCardState extends State<ProductCard> {
-  late bool _isAddToWishlistLoading = false;
-  late bool _isAddToCartLoading = false;
-
+  bool _isAddToWishlistLoading = false;
+  bool _isAddToCartLoading = false;
   @override
   void initState() {
     super.initState();
@@ -30,7 +29,6 @@ class _ProductCardState extends State<ProductCard> {
 
   @override
   Widget build(BuildContext context) {
-    final isItemInCart = widget.model.isItemInCart ?? false;
     return SizedBox(
       height: 315.h,
       child: InkWell(
@@ -127,17 +125,22 @@ class _ProductCardState extends State<ProductCard> {
                 padding: const EdgeInsets.only(left: 8, right: 8),
                 child: Row(
                   children: [
-                    _isAddToCartLoading
-                        ? Expanded(
-                            flex: 3,
-                            child: CustomLoader(
-                              height: 20.h,
-                              width: 20.w,
-                            ),
-                          )
-                        : Expanded(
-                            flex: 3,
-                            child: Material(
+                    Expanded(
+                      flex: 3,
+                      child: GetX<CartController>(
+                          init: CartController(),
+                          builder: (controller) {
+                            final isAddToCartLoading =
+                                controller.state.isLoading.value;
+                            final isItemInCart =
+                                controller.isInCart(widget.model.id);
+                            if (isAddToCartLoading || _isAddToCartLoading) {
+                              return CustomLoader(
+                                height: 20.h,
+                                width: 20.w,
+                              );
+                            }
+                            return Material(
                               color: Colors.transparent,
                               child: Ink(
                                 decoration: BoxDecoration(
@@ -156,34 +159,21 @@ class _ProductCardState extends State<ProductCard> {
                                 child: InkWell(
                                   borderRadius: BorderRadius.circular(6),
                                   onTap: () async {
-                                    // widget.model.isItemInCart
                                     debugPrint('addToCart');
-                                    final isItemInCart =
-                                        widget.model.isItemInCart ?? false;
-
+                                    final itemId = controller
+                                            .getCartItemId(widget.model.id) ??
+                                        0;
                                     setState(() => _isAddToCartLoading = true);
-
-                                    CartController cc =
-                                        Get.put(CartController());
-
                                     final Map<String, dynamic> params = {
                                       'product_id': widget.model.id,
                                       'quantity': 1,
                                     };
                                     if (!isItemInCart) {
-                                      await cc
-                                          .add(params, widget.model.id)
-                                          .then((value) {
-                                        widget.model.isItemInCart = true;
-                                      });
+                                      await controller.add(
+                                          params, widget.model.id);
                                     } else {
-                                      await cc
-                                          .remove(widget.model.id)
-                                          .then((value) {
-                                        widget.model.isItemInCart = false;
-                                      });
+                                      await controller.remove(itemId);
                                     }
-
                                     setState(() => _isAddToCartLoading = false);
                                   },
                                   child: SizedBox(
@@ -227,8 +217,9 @@ class _ProductCardState extends State<ProductCard> {
                                   ),
                                 ),
                               ),
-                            ),
-                          ),
+                            );
+                          }),
+                    ),
                     const SizedBox(width: 8),
                     _isAddToWishlistLoading
                         ? Expanded(
