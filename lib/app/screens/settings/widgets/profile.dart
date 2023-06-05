@@ -120,6 +120,7 @@ class ProfileWidget extends StatelessWidget {
                     text: 'settings_lang'.tr,
                     callback: () => sc.onLanguageTapped(context),
                   ),
+
                   Container(
                     margin: const EdgeInsets.only(left: 16, right: 16),
                     decoration: const BoxDecoration(
@@ -149,6 +150,10 @@ class ProfileWidget extends StatelessWidget {
                   SettingsElementWidget(
                       text: 'settings_about_us'.tr,
                       callback: () => sc.navigate(AppRoutes.cms)),
+                  SettingsElementWidget(
+                    text: 'privacy_policy'.tr,
+                    callback: () => sc.navigate(AppRoutes.privacy),
+                  ),
                   SettingsElementWidget(
                     text: 'settings_logout'.tr,
                     callback: () => sc.onLogoutTapped(context),
