@@ -5,8 +5,8 @@ import 'package:get/get.dart';
 
 import '../../app.dart';
 
-class PrivacyPolicyScreen extends StatelessWidget {
-  const PrivacyPolicyScreen({super.key});
+class DeliveryAndPaymentScreen extends StatelessWidget {
+  const DeliveryAndPaymentScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class PrivacyPolicyScreen extends StatelessWidget {
         leading: const CircleButton(),
         centerTitle: true,
         title: Text(
-          'privacy_policy'.tr.toUpperCase(),
+          'delivery_and_payment'.tr.toUpperCase(),
           softWrap: false,
           overflow: TextOverflow.fade,
         ),
@@ -23,8 +23,8 @@ class PrivacyPolicyScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Center(
           child: Padding(
-            padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 20.h),
-            child: Html(data: 'privacy_policy_text'.tr),
+            padding: EdgeInsets.only(left: 20.w, right: 20.w, top: 20.h),
+            child: Html(data: 'delivery_and_payment_text'.tr),
           ),
         ),
       ),

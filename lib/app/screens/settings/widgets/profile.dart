@@ -155,6 +155,10 @@ class ProfileWidget extends StatelessWidget {
                     callback: () => sc.navigate(AppRoutes.privacy),
                   ),
                   SettingsElementWidget(
+                    text: 'delivery_and_payment'.tr,
+                    callback: () => sc.navigate(AppRoutes.deliveryAndPayment),
+                  ),
+                  SettingsElementWidget(
                     text: 'settings_logout'.tr,
                     callback: () => sc.onLogoutTapped(context),
                     trailingIcon: Icon(

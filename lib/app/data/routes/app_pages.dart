@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-import 'package:nurgul/app/screens/privacy_policy/screen.dart';
 
 import '../../app.dart';
 
@@ -21,5 +20,6 @@ class AppPages {
     GetPage(name: AppRoutes.addresses, page: () => const AddressesScreen()),
     GetPage(name: AppRoutes.cms, page: () => const CMSScreen()),
     GetPage(name: AppRoutes.privacy, page: () => const PrivacyPolicyScreen()),
+    GetPage(name: AppRoutes.deliveryAndPayment, page: () => const DeliveryAndPaymentScreen()),
   ];
 }

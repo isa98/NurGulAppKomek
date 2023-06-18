@@ -23,10 +23,11 @@ class CMSScreen extends StatelessWidget {
             : isNullOrEmpty(cc.htmlContent.value)
                 ? RetryWidget(onRetry: cc.getCMS)
                 : Container(
-                    padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 20.h),
+                    padding:
+                        EdgeInsets.only(left: 30.w, right: 30.w, top: 20.h),
                     child: SingleChildScrollView(
                       child: Center(
-                        child: Html(data: cc.htmlContent.value),
+                        child: Text(r'about_us_text'.tr),
                       ),
                     ),
                   ),

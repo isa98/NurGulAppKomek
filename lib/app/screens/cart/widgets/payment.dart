@@ -14,16 +14,19 @@ class PaymentWidget extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: GetBuilder<CartController>(
+          init: CartController(),
           builder: (cc) {
             return Column(
               children: [
                 AddressList(
-                  callback: (address, selectedIndex) => cc.onAddressSelected(context, address, selectedIndex),
+                  callback: (address, selectedIndex) =>
+                      cc.onAddressSelected(context, address, selectedIndex),
                   cc: cc,
                 ),
                 const SizedBox(height: 20),
                 PaymentTypeList(
-                  callback: (method, selectedIndex) => cc.onPaymentTypeSelected(context, method, selectedIndex),
+                  callback: (method, selectedIndex) =>
+                      cc.onPaymentTypeSelected(context, method, selectedIndex),
                 ),
                 const SizedBox(height: 20),
               ],

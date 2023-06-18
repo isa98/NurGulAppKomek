@@ -12,3 +12,5 @@ export 'product/product.dart';
 export 'search/search.dart';
 export 'settings/screen.dart';
 export 'wishlist/wishlist.dart';
+export 'privacy_policy/privacy.dart';
+export 'delivery_and_payment/delivery.dart';

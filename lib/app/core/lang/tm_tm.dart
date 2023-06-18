@@ -81,32 +81,74 @@ const Map<String, String> tmTM = {
   'general_please_login': 'Giriş ediň!',
   'back': 'Yza',
   'cart_updated': 'Sebet täzelendi',
-  'settings_delete_account': 'Delete account',
-  'settings_delete_account_body': 'Delete account body',
-  'settings_delete': 'Delete',
+  'settings_delete_account': 'Akkaunty pozmak',
+  'settings_delete_account_body': 'Akkantynyň maglumatyny pozmak',
+  'settings_delete': 'Pozmak',
   'settings_profile': 'Profil Tazele',
   'settings_profile_info': 'Profil Maglumatlary',
   'cart_item_removed_from_card': 'Haryt sebedimden aýryldy',
   'product_remove_from_cart': 'Sebetden poz',
-  'about_us_text': '',
-  'privacy_policy': 'Политика конфиденциальности',
-  'privacy_policy_text': '''<h1>1. ОСНОВНЫЕ ПОНЯТИЯ</h1>
-        <div>Nurgul – личный сайт (укажите принадлежность сайта), расположенный в сети Интернет по адресу: <a href='https://nurgul.com.tm/'>nurgul.com.tm</a></div>
-        <div>Администрация Сайта – укажите юридическую форму образования(ХО), <a href='https://nurgul.com.tm'></a></div>
-        <div>Пользователь – физическое или юридическое лицо, разместившее свою персональную информацию посредством Формы обратной связи на сайте с последующей целью передачи данных Администрации Сайта.</div>
-        <div>Форма обратной связи – специальная форма, где Пользователь размещает свою персональную информацию с целью передачи данных Администрации Сайта.</div>
-        <h1>2. ОБЩИЕ ПОЛОЖЕНИЯ</h1>
-        <div>2.1. Настоящая Политика конфиденциальности является официальным типовым документом Администрации Сайта и определяет порядок обработки и защиты информации о физических и юридических лицах, использующих Форму обратной связи на Сайте.</div>
-        <div>2.2. Целью настоящей Политики конфиденциальности является обеспечение надлежащей защиты информации о Пользователе, в т.ч. его персональных данных отнесанкционированного доступа и разглашения.</div>
-        <div>2.3. Отношения, связанные со сбором, хранением, распространением и защитой информации о пользователях регулируются настоящей Политикой конфиденциальности идействующим законодательством Туркменистана.</div>
-        <div>2.4. Действующая редакция Политики конфиденциальности, является публичным документом, разработана Администрацией Сайта и доступна любому Пользователю сети Интернет при переходе по гипертекстовой ссылке «Политика конфиденциальности».</div>
-        <div>2.5. Администрация Сайта вправе вносить изменения в настоящую Политику конфиденциальности.</div>
-        <div>При внесении изменений в Политику конфиденциальности, Администрация Сайта уведомляет об этом Пользователя путём размещения новой редакции Политики конфиденциальности на Сайте: <a href='https://nurgul.com.tm/'>nurgul.com.tm</a></div>
-        <div>2.7. При размещении новой редакции Политики конфиденциальности на Сайте, предыдущая редакция хранятся в архиве документации Администрации Сайта.</div>
-        <div>2.8. Используя Форму обратной связи, Пользователь выражает свое согласие с условиями настоящей Политики конфиденциальности.</div>
-        <div>2.9. Администрация Сайта не проверяет достоверность получаемой (собираемой) информации о Пользователе.</div>
-        <h1>3. УСЛОВИЯ И ЦЕЛИ СБОРА И ОБРАБОТКИ ПЕРСОНАЛЬНЫХ ДАННЫХ ПОЛЬЗОВАТЕЛЕЙ</h1>
-        <div>3.1. Персональные данные Пользователя такие как: имя, фамилия, отчество, e-mail,телефон и др., передаются Пользователем Администрации Сайта с согласия Пользователя.</div>
-        <div>3.2. Передача персональных данных Пользователем Администрации Сайта, через Форму обратной связи означает согласие Пользователя на передачу его персональных данных.</div>
-        <div>3.3. Администрация Сайта осуществляет обработку информации о Пользователе, в т.ч. его персональных данных, таких как: имя, фамилия, отчество, e-mail, телефон и др., а также дополнительной информации о Пользователе, предоставляемой им по своему желанию: организация, город, должность и др. в целях выполнения обязательств перед Пользователем Сайта.</div><br/><br/>''',
+  'about_us_text': _aboutUsText,
+  'privacy_policy': 'Ulanyş Düzgünleriniň we Gizlinligiň',
+  'privacy_policy_text': _privacyTextHtml,
+  'delivery_and_payment': 'Eltip bermek we töleg tertibi',
+  'delivery_and_payment_text': _deliveryTextHtml,
 };
+
+const _aboutUsText =
+    'Теперь подбирать и заказывать цветы стало намного проще с помощью приложения «Nur Gül».\n «Nur Gül» - уникальная платформа, где вы сможете приобрести букеты и цветочные композиции, собранные профессиональными флористами на ваш вкус. Удобный функционал и понятный интерфейс приложения поможет вам легко и быстро заказать свежую и гарантировано качественную продукцию. Выбрав наиболее удобное время для доставки, вы можете быть уверенны что курьер доставит все в лучшем виде и в указанное для доставки время.\n Для консультации, вы сможете связаться с нашими экспертами и они не только помогут вам в выборе, но и предложат наилучшие варианты композиций на любую сумму. ';
+
+const _deliveryTextHtml =
+    '''<div class="delivery_and_payment"><p><strong>Eltip bermek we töleg tertibi:</strong></p>
+<ul>
+<li style="margin-bottom: 20px;">Eltip bermek hyzmaty Aşgabat şäheriniň çägi bilen bir hatarda Büzmeýine we Änew şäherine hem elýeterlidir;</li>
+<li style="margin-bottom: 20px;">Sargydyň iň pes çägi <strong>50 manat</strong> bolmaly; <strong>50-150 manat</strong> arasy eltip bermek hyzmatynyň tölegi 10 manat; sargydyňyz <strong>150 manatdan</strong> geçse eltip bermek hyzmaty mugt;</li>
+<li style="margin-bottom: 20px;">Saýtdan sargyt edeniňizden soňra operator size jaň edip sargydy tassyklar (eger hemişelik müşderi bolsaňyz sargytlaryňyz islegiňize görä awtomatik usulda hem tassyklanýar);</li>
+<li style="margin-bottom: 20px;">Girizen salgyňyz we telefon belgiňiz esasynda hyzmat amala aşyrylýar;</li>
+<li style="margin-bottom: 20px;">Sargyt tassyklanmadyk ýagdaýynda ol hasaba alynmaýar we ýerine ýetirilmeýär. Sargydyň tassyklanmagy üçin girizen telefon belgiňizden jaň kabul edip bilýändigiňize göz ýetiriň. Şeýle hem girizen salgyňyzyň dogrulygyny barlaň;</li>
+<li style="margin-bottom: 20px;">Sargydy barlap alanyňyzdan soňra töleg amala aşyrylýar. Eltip berijiniň size gowşurýan töleg resminamasynda siziň tölemeli puluňyz bellenendir. Töleg nagt we nagt däl görnüşde milli manatda amala aşyrylýar. Kabul edip tölegini geçiren harydyňyz yzyna alynmaýar;</li>
+<li style="margin-bottom: 20px;">Sargyt tassyklanandan soňra 24 sagadyň dowamynda eýesi tapylmasa ol güýjüni ýitirýär;</li>
+</ul></div>''';
+
+const _privacyTextHtml =
+    '''<div class="privacy_policy whitespace-pre-line"><p style="text-align: center;"><strong><u>Ulanyş Düzgünleriniň we Gizlinligiň </u></strong></p>
+<p style="text-align: center;"><strong>ÖZARA YLALAŞYGY</strong></p>
+<p>Nur Gül - Internet Marketi (Mundan beýläk – “Nur Gül”) we nurgul.com.tm internet saýty (Mundan beýläk – “Saýt”) bilen, onuň agzasynyň (“Agza”) arasynda aşakdaky şertleri ýerine ýetirmek barada ylalaşyga gelindi.</p>
+<p><span style="text-decoration: underline;"><strong>Umumy düzgünler</strong></span></p>
+<ul>
+<li>Agza, Saýtda bellige alyş işlerini tamamlandan soň, şu Ylalaşykda bellenen şertlere eýermek bilen telefon belgisini we açar sözüni girizip, Saýty ulanmaga başlap biler.</li>
+<li>Agzanyň Saýty ulanyp başlamagy Ylalaşygyň ähli şertlerini kabul edýär diýip hasaplanylýar.</li>
+<li>Ylalaşyk, agzalygyňyzyň ýatyrylmagy bilen güýjini ýitirjekdir.</li>
+<li>Nur Gül şu Ylalaşyga birtaraplaýyn üýtgetmeleri we goşmaçalary girizip biler.</li>
+<li>Saýtyň belli ýerlerinde, umumy düzgünler, şeýle hem degişli bölüme laýyk başga şertler-de bellenilip biliner. Hyzmatlarymyzdan peýdalanýan Agza, degişli şertleri okan we kabul eden hasaplanýar.</li>
+</ul>
+<p><strong><u>Agzanyň hukuklary we borçlary</u></strong></p>
+<ul>
+<li>Saýt, ähli adamlaryň ulanmagy üçin açykdyr.</li>
+<li>Agza, Saýty ulananda, Ylalaşykda bellenen ähli şertleri kabul edýär.</li>
+<li>Agza, Saýtdan peýdalanan döwründe Türkmenistanyň kanunçylygyna laýyklykda hereket etjekdigine borçlanýar. &nbsp;</li>
+<li>Agza, beýleki agzalaryň we zyýaratçylaryň saýty ulanmagyna päsgel beriji ýa-da agyrlaşladyryjy hereketlere baş goşmaly däldir. Baş goşan ýagdaýynda, Nur Gül tarapyndan agzalykdan çykaryljakdygyny we bu ýagdaý sebäpli ýüze çykjak her bir hukuk we jerime jogapkärçiligini öz üstüne kabul edýär.</li>
+<li>Saýtyň içinde, şeýle hem sosial ulgamlarda operator bilen ýazyşmalaryň göçürmesiniň saklanmagy agzalaryň jogapkärçiligindedir. Bu Nur Gül tarapyndan maslahat berilýär. Ýazyşmalaryň göçürmesi saklanmadyk ýagdaýynda, ýitmeginden ýa-da pozulmagyndan Nur Gül jogapkär däldir.</li>
+<li>Nur Gül ýa-da Agzanyň özi tarapyndan ýatyrylan agza, hasabyna degişli ýazgysyny, agzanyň garşy talabynyň bolmadyk ýagdaýynda, Nur Gül ony pozmakda ýa-da pozmazlykda erkindir.</li>
+<li>Agza, Saýta registrasiýa bolanynda ýa-da hyzmatlaryndan peýdalananynda şahsy we beýleki maglumatlarynyň dogrulygyny we bu maglumatlaryň dogry bolmadyk ýagdaýynda Nur Gülüň bu sebäpden görjek ähli zeperlerini tölejekdigini kabul edýär.</li>
+</ul>
+<p><strong><u>Nur Gülüň hukuklary we jogapkärçiligi</u></strong></p>
+<ul>
+<li>Agza, saýty ulanmak bilen bagly Türkmenistanyň kanunçylygyny we şu Ylalaşygyň şertlerini bozan ýagdaýynda Nur Gülüň birtaraplaýyn agzany agzalykdan çykarmaga hukugy bardyr.</li>
+<li>Agzalara, Nur Gül tarapyndan saýta agza bolmagy bilen berilen ýa-da öz bellän agza ady, açar sözi ýaly maglumatlaryň ulanmagyny, başga adamlara beren ýagdaýynda, açar sözüniň başga adamalar tarapyndan ýaman niýet bilen ulanylmagyndan Agza jogapkärdir. Şeýle-de, Agza, internet äleminde başganyň IP adresini, e-poçta adresini we ulanyjy adyny ulanyp bilmeýändigi bilen birlikde, Agzalaryň şahsy maglumatlaryny rugsatsyz ulanyp bilmeýär. Ulanylan halatynda, ýüze çykjak ähli hukuk we jerime jogapkärçiliklerini Agza öz üstüne alýar.</li>
+</ul>
+<p><strong><u>Alynan maglumatlar we olaryň ulanylyşy</u></strong></p>
+<p>Saýtyň hyzmatlaryndan ulanýan döwrüňizde we/ýa-da saýtymyza agza bolan ýagdaýyňyzda, size ýokary hilli hyzmat bermek üçin adyňyz, familiýaňyz, e-poçta adresiňiz, telefon belgiňiz, jynsyňyz, doglan günüňiz, eltip berme adresiňiz ýaly käbir şahsy maglumatlaryňyza zerurlyk ýüze çykýar. Saýtda alynan maglumatlar aşakdaky maksatlar üçin ulanylýar:</p>
+<ul>
+<li>Siziň hususy hasabyňyzy döretmek.</li>
+<li>Sargydy ýerine ýetirmek, tamamlamak we müşderilerimiz bilen aragatnaşyk saklamak.</li>
+<li>Sargytlar, hyzmatlar we arzanladyşlar hakda maglumat bermek.</li>
+<li>Müşderilerimiziň söwda saýlawlaryny has gowy bilmek we olara teklipler hödürlemek.</li>
+<li>Trend seljermeleri we statistik seljermeler etmek.</li>
+</ul>
+<p><strong><u>Hukuklaryňyz haýsylardyr?</u></strong></p>
+<p>Bizde saklanan şahsy maglumatlaryňyz hakda maglumat almaga hukugyňyz bardyr. Maglumatlaryňyz ýalňyş ýa-da doly däl bolsa, maglumatlaryňyzyň düzedilmegini ýa-da aýrylmagyny talap edip bilersiňiz. Biziň bilen aşakdaky ýollar arkaly habarlaşyp bilersiňiz:</p>
+<p><strong><u>Salgy:</u></strong>&nbsp;nurgul.com.tm</p>
+<p><strong><u>Telefon:</u></strong>&nbsp;+99363757422, +99362757474 we 22-74-75 (Müşderi Hyzmatlary, hepdäniň 7 güni 09:00 - 18:00 sagatlar arasynda hyzmat berýär.)</p>
+
+<p>Ýokarda ýazylan şertleri okadym, düşündim, kanuna we hukuklaryma laýyklykda hereket etjekdigime borçlanýaryn.</p></div>''';

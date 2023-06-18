@@ -7,5 +7,6 @@ class AppRoutes {
   static const String addresses = '/addresses';
   static const String cms = '/cms';
   static const String privacy = '/privacy_policy';
+  static const String deliveryAndPayment = '/delivery_and_payment';
   static const String productDetailScreen = '/ProductDetailScreen';
 }
