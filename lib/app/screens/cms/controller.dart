@@ -1,24 +1,24 @@
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+// import 'package:flutter/material.dart';
+// import 'package:get/get.dart';
 
-import '../../app.dart';
+// import '../../app.dart';
 
-class CmsController extends GetxController with StateMixin<Type> {
-  RxBool isLoading = false.obs;
-  RxString htmlContent = ''.obs;
+// class CmsController extends GetxController with StateMixin<Type> {
+//   RxBool isLoading = false.obs;
+//   RxString htmlContent = ''.obs;
 
-  @override
-  void onInit() {
-    debugPrint('CmsController: onInit()');
-    getCMS();
-    super.onInit();
-  }
+//   @override
+//   void onInit() {
+//     debugPrint('CmsController: onInit()');
+//     getCMS();
+//     super.onInit();
+//   }
 
-  Future<void> getCMS() async {
-    isLoading.value = true;
+//   Future<void> getCMS() async {
+//     isLoading.value = true;
 
-    htmlContent.value = await CMSApi.get();
+//     htmlContent.value = await CMSApi.get();
 
-    isLoading.value = false;
-  }
-}
+//     isLoading.value = false;
+//   }
+// }

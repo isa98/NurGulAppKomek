@@ -89,14 +89,14 @@ const Map<String, String> tmTM = {
   'cart_item_removed_from_card': 'Haryt sebedimden aýryldy',
   'product_remove_from_cart': 'Sebetden poz',
   'about_us_text': _aboutUsText,
-  'privacy_policy': 'Ulanyş Düzgünleriniň we Gizlinligiň',
+  'privacy_policy': 'Ulanyş düzgünleri we gizlinlik şertleri',
   'privacy_policy_text': _privacyTextHtml,
   'delivery_and_payment': 'Eltip bermek we töleg tertibi',
   'delivery_and_payment_text': _deliveryTextHtml,
 };
 
 const _aboutUsText =
-    'Теперь подбирать и заказывать цветы стало намного проще с помощью приложения «Nur Gül».\n «Nur Gül» - уникальная платформа, где вы сможете приобрести букеты и цветочные композиции, собранные профессиональными флористами на ваш вкус. Удобный функционал и понятный интерфейс приложения поможет вам легко и быстро заказать свежую и гарантировано качественную продукцию. Выбрав наиболее удобное время для доставки, вы можете быть уверенны что курьер доставит все в лучшем виде и в указанное для доставки время.\n Для консультации, вы сможете связаться с нашими экспертами и они не только помогут вам в выборе, но и предложат наилучшие варианты композиций на любую сумму. ';
+    'Indi “Nur Gül” programmasynyň kömegi bilen gül saýlamak we sargyt etmek has aňsatlaşdy.\n "Nur Gül", gülçüleri we gül bezeglerini satyn alyp boljak özboluşly platforma, hünärmen gülçüler tarapyndan öz islegiňize görä ýygnalýar. Amatly işlemek we programmanyň aýdyň interfeýsi täze we kepillendirilen ýokary hilli önümleri çalt we aňsat sargyt etmäge kömek eder. Size iň amatly töleg usulyny (kartdan ýa-da nagt) saýlamak bilen, eltip berijiniň hemme zady iň oňat we mümkin boldugyça gysga wagtda eltip biljekdigine ynanyp bilersiňiz.\n Maslahat üçin hünärmenlerimiz bilen habarlaşyp bilersiňiz, olar diňe bir saýlamaga kömek etmän, eýsem islendik mukdarda kompozisiýa üçin iň oňat görnüşleri hem hödürlärler.';
 
 const _deliveryTextHtml =
     '''<div class="delivery_and_payment"><p><strong>Eltip bermek we töleg tertibi:</strong></p>
@@ -149,6 +149,7 @@ const _privacyTextHtml =
 <p><strong><u>Hukuklaryňyz haýsylardyr?</u></strong></p>
 <p>Bizde saklanan şahsy maglumatlaryňyz hakda maglumat almaga hukugyňyz bardyr. Maglumatlaryňyz ýalňyş ýa-da doly däl bolsa, maglumatlaryňyzyň düzedilmegini ýa-da aýrylmagyny talap edip bilersiňiz. Biziň bilen aşakdaky ýollar arkaly habarlaşyp bilersiňiz:</p>
 <p><strong><u>Salgy:</u></strong>&nbsp;nurgul.com.tm</p>
-<p><strong><u>Telefon:</u></strong>&nbsp;+99363757422, +99362757474 we 22-74-75 (Müşderi Hyzmatlary, hepdäniň 7 güni 09:00 - 18:00 sagatlar arasynda hyzmat berýär.)</p>
+<p><strong><u>E-mail:</u></strong>&nbsp;flowerstorenurgul@gmail.com</p>
+<p><strong><u>Telefon:</u></strong>&nbsp;+99361748758 we +99364213234 (Müşderi Hyzmatlary, hepdäniň 7 güni 09:00 - 18:00 sagatlar arasynda hyzmat berýär.)</p>
 
 <p>Ýokarda ýazylan şertleri okadym, düşündim, kanuna we hukuklaryma laýyklykda hereket etjekdigime borçlanýaryn.</p></div>''';

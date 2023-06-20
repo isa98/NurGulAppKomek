@@ -10,27 +10,19 @@ class CMSScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetX<CmsController>(
-      init: CmsController(),
-      builder: (cc) => Scaffold(
-        appBar: AppBar(
-          leading: const CircleButton(),
-          centerTitle: true,
-          title: Text('about_us_title'.tr.toUpperCase()),
+    return Scaffold(
+      appBar: AppBar(
+        leading: const CircleButton(),
+        centerTitle: true,
+        title: Text('about_us_title'.tr.toUpperCase()),
+      ),
+      body: Container(
+        padding: EdgeInsets.only(left: 30.w, right: 30.w, top: 20.h),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Text(r'about_us_text'.tr),
+          ),
         ),
-        body: cc.isLoading.value
-            ? const CustomLoader()
-            : isNullOrEmpty(cc.htmlContent.value)
-                ? RetryWidget(onRetry: cc.getCMS)
-                : Container(
-                    padding:
-                        EdgeInsets.only(left: 30.w, right: 30.w, top: 20.h),
-                    child: SingleChildScrollView(
-                      child: Center(
-                        child: Text(r'about_us_text'.tr),
-                      ),
-                    ),
-                  ),
       ),
     );
   }

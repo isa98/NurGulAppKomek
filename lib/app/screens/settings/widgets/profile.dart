@@ -113,9 +113,9 @@ class ProfileWidget extends StatelessWidget {
                   SettingsElementWidget(
                       text: 'settings_address'.tr,
                       callback: () => sc.navigate(AppRoutes.addresses)),
-                  SettingsElementWidget(
-                      text: 'settings_order_history'.tr,
-                      callback: () => sc.navigate(AppRoutes.orders)),
+                  // SettingsElementWidget(
+                  //     text: 'settings_order_history'.tr,
+                  //     callback: () => sc.navigate(AppRoutes.orders)),
                   SettingsElementWidget(
                     text: 'settings_lang'.tr,
                     callback: () => sc.onLanguageTapped(context),
