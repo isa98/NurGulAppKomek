@@ -10,7 +10,8 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Get.isDarkMode ? ThemeColor.darkMainColorLight : ThemeColor.white,
+      backgroundColor:
+          Get.isDarkMode ? ThemeColor.darkMainColorLight : ThemeColor.white,
       appBar: AppBar(
         leading: const BackButton(color: ThemeColor.white),
         title: Text('reg_register'.tr.toUpperCase()),
@@ -27,24 +28,31 @@ class RegisterScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 12),
-                  Text('reg_register_short'.tr, style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold)),
+                  Text('reg_register_short'.tr,
+                      style: TextStyle(
+                          fontSize: 18.sp, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 6),
-                  Text('reg_register_desc'.tr, style: TextStyle(fontSize: 14.sp)),
+                  Text('reg_register_desc'.tr,
+                      style: TextStyle(fontSize: 14.sp)),
                   const SizedBox(height: 16),
-                  Text('reg_form_name'.tr, style: StyleConstants.formHeaderStyle),
+                  Text('reg_form_name'.tr,
+                      style: StyleConstants.formHeaderStyle),
                   StyleConstants.formSpacer,
                   MyTextFormField(
                     label: 'reg_form_name'.tr,
                     hintText: 'Aman Amanow',
                     inputType: TextInputType.text,
                     controller: rc.state.nameCtrl,
+                    focusNode: FocusNode(),
                   ),
                   const SizedBox(height: 20),
-                  Text('reg_form_phone'.tr, style: StyleConstants.formHeaderStyle),
+                  Text('reg_form_phone'.tr,
+                      style: StyleConstants.formHeaderStyle),
                   StyleConstants.formSpacer,
                   MyTextFormField(
                     label: 'phone'.tr,
                     isPhone: true,
+                    focusNode: FocusNode(),
                     prefix: Padding(
                       padding: EdgeInsets.fromLTRB(12, 14.sp, 0, 0),
                       child: Text(
@@ -62,11 +70,13 @@ class RegisterScreen extends StatelessWidget {
                     controller: rc.state.phoneCtrl,
                   ),
                   const SizedBox(height: 20),
-                  Text('reg_form_pwd'.tr, style: StyleConstants.formHeaderStyle),
+                  Text('reg_form_pwd'.tr,
+                      style: StyleConstants.formHeaderStyle),
                   StyleConstants.formSpacer,
                   MyTextFormField(
                     label: 'reg_form_pwd_new'.tr,
                     controller: rc.state.pwdCtrl,
+                    focusNode: FocusNode(),
                     suffix: InkWell(
                       onTap: rc.onVisibilityChange,
                       child: Padding(
@@ -84,6 +94,7 @@ class RegisterScreen extends StatelessWidget {
                   MyTextFormField(
                     label: 'reg_form_pwd_new_rpt'.tr,
                     controller: rc.state.pwdRptCtrl,
+                    focusNode: FocusNode(),
                     suffix: InkWell(
                       onTap: rc.onVisibilityChange,
                       child: Padding(
@@ -99,7 +110,9 @@ class RegisterScreen extends StatelessWidget {
                   const SizedBox(height: 32),
                   rc.state.isLoading.value
                       ? CustomLoader(height: 48.h, width: 48.w)
-                      : ButtonWidthFull(callback: rc.onRegisterTapped, title: 'reg_register_short'.tr),
+                      : ButtonWidthFull(
+                          callback: rc.onRegisterTapped,
+                          title: 'reg_register_short'.tr),
                 ],
               ),
             ),

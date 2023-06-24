@@ -26,7 +26,9 @@ class LoginScreen extends StatelessWidget {
                 Stack(
                   children: [
                     Image.asset(
-                      Get.isDarkMode ? 'assets/images/auth_img_dark.png' : 'assets/images/auth_img_light.png',
+                      Get.isDarkMode
+                          ? 'assets/images/auth_img_dark.png'
+                          : 'assets/images/auth_img_light.png',
                       height: 0.40.sh,
                       width: 1.sw,
                       fit: BoxFit.cover,
@@ -47,14 +49,17 @@ class LoginScreen extends StatelessWidget {
                     children: [
                       Text(
                         'login_welcome'.tr,
-                        style: TextStyle(fontSize: 18.sp, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            fontSize: 18.sp, fontWeight: FontWeight.bold),
                       ),
                       const SizedBox(height: 30),
-                      Text('login_phone'.tr, style: StyleConstants.formHeaderStyle),
+                      Text('login_phone'.tr,
+                          style: StyleConstants.formHeaderStyle),
                       StyleConstants.formSpacer,
                       MyTextFormField(
                         label: 'phone'.tr,
                         isPhone: true,
+                        focusNode: FocusNode(),
                         prefix: Padding(
                           padding: EdgeInsets.fromLTRB(12, 14.sp, 0, 0),
                           child: Text(
@@ -72,11 +77,13 @@ class LoginScreen extends StatelessWidget {
                         controller: lc.state.phoneCtrl,
                       ),
                       const SizedBox(height: 20),
-                      Text('login_password'.tr, style: StyleConstants.formHeaderStyle),
+                      Text('login_password'.tr,
+                          style: StyleConstants.formHeaderStyle),
                       StyleConstants.formSpacer,
                       MyTextFormField(
                         label: 'login_password'.tr,
                         controller: lc.state.passwordCtrl,
+                        focusNode: FocusNode(),
                         suffix: InkWell(
                           onTap: lc.onVisibilityChange,
                           child: Padding(
@@ -92,7 +99,9 @@ class LoginScreen extends StatelessWidget {
                       const SizedBox(height: 32),
                       lc.state.isLoading.value
                           ? CustomLoader(height: 48.h, width: 48.w)
-                          : ButtonWidthFull(callback: lc.onLoginTapped, title: 'login_btn_txt'.tr),
+                          : ButtonWidthFull(
+                              callback: lc.onLoginTapped,
+                              title: 'login_btn_txt'.tr),
                       const SizedBox(height: 16),
                       Center(
                         child: RichText(

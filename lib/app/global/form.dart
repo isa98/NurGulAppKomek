@@ -22,6 +22,7 @@ class MyTextFormField extends StatelessWidget {
   final Widget? prefix;
   final List<TextInputFormatter>? inputFormatters;
   final Function(String value)? onChangeCallback;
+  final FocusNode focusNode;
 
   const MyTextFormField({
     super.key,
@@ -36,6 +37,7 @@ class MyTextFormField extends StatelessWidget {
     this.prefix,
     this.inputFormatters,
     this.onChangeCallback,
+    required this.focusNode,
   });
 
   @override
@@ -47,11 +49,16 @@ class MyTextFormField extends StatelessWidget {
       // cursorColor: ThemeColor.cursorColor,
       style: txtStyle,
       keyboardType: inputType,
+      onTapOutside: (_) {
+        focusNode.unfocus();
+      },
+      focusNode: focusNode,
       inputFormatters: inputFormatters != null ? [...inputFormatters!] : [],
       textInputAction: TextInputAction.done,
       decoration: inputDecoration(),
       validator: (value) => _validator(value),
-      onChanged: (value) => onChangeCallback != null ? onChangeCallback!(value) : null,
+      onChanged: (value) =>
+          onChangeCallback != null ? onChangeCallback!(value) : null,
     );
   }
 
@@ -86,13 +93,19 @@ class MyTextFormField extends StatelessWidget {
 
   String? _validator(String? value) {
     if (obscureText) {
-      return (value == null || value.trim().length < 6) ? 'validation_min_6_char'.tr : null;
+      return (value == null || value.trim().length < 6)
+          ? 'validation_min_6_char'.tr
+          : null;
     }
     if (isPhone) {
       final phone = value?.replaceAll(RegExp(r'\D+'), '');
-      return (phone == null || phone.trim().length < 8) ? 'validation_invalid_phone'.tr : null;
+      return (phone == null || phone.trim().length < 8)
+          ? 'validation_invalid_phone'.tr
+          : null;
     }
 
-    return (value == null || value.trim().isEmpty) ? '$label ${'validation_is_reqired'.tr}' : null;
+    return (value == null || value.trim().isEmpty)
+        ? '$label ${'validation_is_reqired'.tr}'
+        : null;
   }
 }

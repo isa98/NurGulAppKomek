@@ -65,6 +65,7 @@ class EditProfileDialog extends StatelessWidget {
                         label: 'reg_form_name'.tr,
                         inputType: TextInputType.text,
                         controller: sc.state.nameCtrl,
+                        focusNode: FocusNode(),
                       ),
                       /*  const SizedBox(height: 20),
                       Text('reg_form_phone'.tr, style: StyleConstants.formHeaderStyle),

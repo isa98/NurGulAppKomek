@@ -58,13 +58,16 @@ class AddAddressDialog extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('address_address'.tr, style: TextStyle(color: ThemeColor.black, fontSize: 16.sp)),
+                      Text('address_address'.tr,
+                          style: TextStyle(
+                              color: ThemeColor.black, fontSize: 16.sp)),
                       divider,
                       MyTextFormField(
                         maxLines: 2,
                         controller: ac.state.addressCtrl,
                         label: 'address_address'.tr,
                         hintText: 'address_hint'.tr,
+                        focusNode: FocusNode(),
                       ),
                       SizedBox(height: 30.h),
                       isLoading
@@ -78,7 +81,8 @@ class AddAddressDialog extends StatelessWidget {
                                     onPressed: () => Navigator.pop(context),
                                     style: OutlinedButton.styleFrom(
                                       shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(8.0),
+                                        borderRadius:
+                                            BorderRadius.circular(8.0),
                                       ),
                                       side: BorderSide(
                                         width: 2,
@@ -92,10 +96,12 @@ class AddAddressDialog extends StatelessWidget {
                                 SizedBox(
                                   width: width * 0.48,
                                   child: ButtonWidthFull(
-                                    title: ac.state.operationType == OperationType.create
+                                    title: ac.state.operationType ==
+                                            OperationType.create
                                         ? 'address_add'.tr
                                         : 'address_update'.tr,
-                                    callback: () => ac.createUpdateAddress(context),
+                                    callback: () =>
+                                        ac.createUpdateAddress(context),
                                   ),
                                 ),
                               ],
