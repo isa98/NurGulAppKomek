@@ -8,6 +8,11 @@ class RegisterState {
   TextEditingController pwdCtrl = TextEditingController();
   TextEditingController pwdRptCtrl = TextEditingController();
 
+  final FocusNode nameFocus = FocusNode();
+  final FocusNode phoneFocus = FocusNode();
+  final FocusNode pwdFocus = FocusNode();
+  final FocusNode pwdRptFocus = FocusNode();
+
   RxBool obscureText = true.obs;
   Rx<IconData> visibilityIcon = Icons.visibility_off.obs;
 

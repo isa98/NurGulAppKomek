@@ -14,12 +14,18 @@ class RegisterController extends GetxController {
     state.pwdCtrl.dispose();
     state.pwdRptCtrl.dispose();
 
+    state.nameFocus.dispose();
+    state.phoneFocus.dispose();
+    state.pwdFocus.dispose();
+    state.pwdRptFocus.dispose();
+
     super.onClose();
   }
 
   void onVisibilityChange() {
     state.obscureText.value = !state.obscureText.value;
-    state.visibilityIcon.value = state.obscureText.value ? Icons.visibility_off : Icons.visibility;
+    state.visibilityIcon.value =
+        state.obscureText.value ? Icons.visibility_off : Icons.visibility;
   }
 
   Future<void> onRegisterTapped() async {
@@ -28,7 +34,8 @@ class RegisterController extends GetxController {
 
     if (state.formKey.currentState!.validate()) {
       if (!checkPasswordEquality()) {
-        showSnack('general_warning'.tr, 'validation_password_not_match'.tr, SnackType.warning, 3);
+        showSnack('general_warning'.tr, 'validation_password_not_match'.tr,
+            SnackType.warning, 3);
         return;
       }
 
@@ -65,5 +72,6 @@ class RegisterController extends GetxController {
     }
   }
 
-  bool checkPasswordEquality() => state.pwdCtrl.text.trim() == state.pwdRptCtrl.text.trim();
+  bool checkPasswordEquality() =>
+      state.pwdCtrl.text.trim() == state.pwdRptCtrl.text.trim();
 }

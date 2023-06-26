@@ -43,7 +43,7 @@ class RegisterScreen extends StatelessWidget {
                     hintText: 'Aman Amanow',
                     inputType: TextInputType.text,
                     controller: rc.state.nameCtrl,
-                    focusNode: FocusNode(),
+                    focusNode: rc.state.nameFocus,
                   ),
                   const SizedBox(height: 20),
                   Text('reg_form_phone'.tr,
@@ -52,7 +52,7 @@ class RegisterScreen extends StatelessWidget {
                   MyTextFormField(
                     label: 'phone'.tr,
                     isPhone: true,
-                    focusNode: FocusNode(),
+                    focusNode: rc.state.phoneFocus,
                     prefix: Padding(
                       padding: EdgeInsets.fromLTRB(12, 14.sp, 0, 0),
                       child: Text(
@@ -76,7 +76,7 @@ class RegisterScreen extends StatelessWidget {
                   MyTextFormField(
                     label: 'reg_form_pwd_new'.tr,
                     controller: rc.state.pwdCtrl,
-                    focusNode: FocusNode(),
+                    focusNode: rc.state.pwdFocus,
                     suffix: InkWell(
                       onTap: rc.onVisibilityChange,
                       child: Padding(
@@ -94,7 +94,7 @@ class RegisterScreen extends StatelessWidget {
                   MyTextFormField(
                     label: 'reg_form_pwd_new_rpt'.tr,
                     controller: rc.state.pwdRptCtrl,
-                    focusNode: FocusNode(),
+                    focusNode: rc.state.pwdRptFocus,
                     suffix: InkWell(
                       onTap: rc.onVisibilityChange,
                       child: Padding(

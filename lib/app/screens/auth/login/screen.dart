@@ -59,7 +59,7 @@ class LoginScreen extends StatelessWidget {
                       MyTextFormField(
                         label: 'phone'.tr,
                         isPhone: true,
-                        focusNode: FocusNode(),
+                        focusNode: lc.state.phoneFocus,
                         prefix: Padding(
                           padding: EdgeInsets.fromLTRB(12, 14.sp, 0, 0),
                           child: Text(
@@ -83,7 +83,7 @@ class LoginScreen extends StatelessWidget {
                       MyTextFormField(
                         label: 'login_password'.tr,
                         controller: lc.state.passwordCtrl,
-                        focusNode: FocusNode(),
+                        focusNode: lc.state.passwordFocus,
                         suffix: InkWell(
                           onTap: lc.onVisibilityChange,
                           child: Padding(

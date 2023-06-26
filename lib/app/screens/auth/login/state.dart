@@ -6,6 +6,9 @@ class LoginState {
   TextEditingController phoneCtrl = TextEditingController();
   TextEditingController passwordCtrl = TextEditingController();
 
+  FocusNode phoneFocus = FocusNode();
+  FocusNode passwordFocus = FocusNode();
+
   RxBool isLoading = false.obs;
 
   RxBool obscureText = true.obs;
