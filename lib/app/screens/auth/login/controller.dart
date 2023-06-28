@@ -11,12 +11,16 @@ class LoginController extends GetxController {
   void onClose() {
     state.phoneCtrl.dispose();
     state.passwordCtrl.dispose();
+
+    state.phoneFocus.dispose();
+    state.passwordFocus.dispose();
     super.onClose();
   }
 
   void onVisibilityChange() {
     state.obscureText.value = !state.obscureText.value;
-    state.visibilityIcon.value = state.obscureText.value ? Icons.visibility_off : Icons.visibility;
+    state.visibilityIcon.value =
+        state.obscureText.value ? Icons.visibility_off : Icons.visibility;
   }
 
   Future<void> onLoginTapped() async {

@@ -23,6 +23,10 @@ class SettingsController extends GetxController {
     state.phoneCtrl.dispose();
     state.pwdCtrl.dispose();
 
+    state.nameFocus.dispose();
+    state.phoneFocus.dispose();
+    state.pwdFocus.dispose();
+
     super.onClose();
   }
 
@@ -32,7 +36,8 @@ class SettingsController extends GetxController {
 
   void onVisibilityChange() {
     state.obscureText.value = !state.obscureText.value;
-    state.visibilityIcon.value = state.obscureText.value ? Icons.visibility_off : Icons.visibility;
+    state.visibilityIcon.value =
+        state.obscureText.value ? Icons.visibility_off : Icons.visibility;
   }
 
   void onLogoutTapped(BuildContext context) {
