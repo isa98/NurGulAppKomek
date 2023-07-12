@@ -32,7 +32,7 @@ class CategoriesWidget extends StatelessWidget {
                         ),
                         child: InkWell(
                           splashColor: Get.isDarkMode
-                              ? ThemeColor.darkSplashColor
+                              ? ThemeColor.mainColorMid
                               : ThemeColor.lightSplashColor,
                           borderRadius: BorderRadius.circular(16),
                           onTap: () => cc.onCategoryTapped(category),

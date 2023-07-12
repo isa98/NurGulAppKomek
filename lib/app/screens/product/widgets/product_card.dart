@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:unicons/unicons.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../app.dart';
 
@@ -145,17 +146,21 @@ class _ProductCardState extends State<ProductCard> {
                               child: Ink(
                                 decoration: BoxDecoration(
                                     color: Get.isDarkMode
-                                        ? ThemeColor.darkMainColorLight
+                                        ? isItemInCart
+                                            ? ThemeColor.darkMainColorLight
+                                            : ThemeColor.mainColor
                                         : isItemInCart
-                                            ? ThemeColor.white
-                                            : ThemeColor.mainColorMid,
+                                            ? ThemeColor.mainColor
+                                            : ThemeColor.white,
                                     borderRadius: BorderRadius.circular(6),
-                                    border: Border.all(
-                                      width: 2.0,
-                                      color: isItemInCart
-                                          ? ThemeColor.mainColor
-                                          : ThemeColor.mainColorMid,
-                                    )),
+                                    border: Get.isDarkMode
+                                        ? null
+                                        : !isItemInCart
+                                            ? Border.all(
+                                                width: 2.0,
+                                                color: ThemeColor.mainColor,
+                                              )
+                                            : null),
                                 child: InkWell(
                                   borderRadius: BorderRadius.circular(6),
                                   onTap: () async {
@@ -184,15 +189,15 @@ class _ProductCardState extends State<ProductCard> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,
                                         children: [
-                                          Icon(
+                                          SvgPicture.asset(
                                             isItemInCart
-                                                ? Icons
-                                                    .remove_shopping_cart_rounded
-                                                : Icons
-                                                    .add_shopping_cart_rounded,
-                                            color:
-                                                Get.theme.colorScheme.primary,
-                                            size: 22.sp,
+                                                ? 'assets/icons/remove_from_cart.svg'
+                                                : 'assets/icons/add_to_cart.svg',
+                                            color: Get.isDarkMode ||
+                                                    isItemInCart
+                                                ? ThemeColor.white
+                                                : Get.theme.colorScheme.primary,
+                                            height: 22.sp,
                                           ),
                                           const SizedBox(width: 12),
                                           Flexible(
@@ -203,7 +208,8 @@ class _ProductCardState extends State<ProductCard> {
                                                   : 'product_add_to_cart'.tr,
                                               style: TextStyle(
                                                   fontSize: 12.sp,
-                                                  color: Get.isDarkMode
+                                                  color: Get.isDarkMode ||
+                                                          isItemInCart
                                                       ? ThemeColor.white
                                                       : ThemeColor.mainColor,
                                                   fontWeight: FontWeight.bold),

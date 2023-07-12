@@ -5,8 +5,8 @@ import 'colors.dart';
 ThemeData darkTheme = ThemeData(
   primaryColor: ThemeColor.darkMainColor,
   colorScheme: ColorScheme.fromSwatch().copyWith(
-    primary: ThemeColor.darkMainColorGreen,
-    secondary: ThemeColor.darkMainColorGreenSecondary,
+    primary: ThemeColor.mainColor,
+    secondary: ThemeColor.mainColorMid,
     brightness: Brightness.dark,
     background: ThemeColor.darkMainColorLight,
     tertiary: ThemeColor.white,
@@ -15,11 +15,11 @@ ThemeData darkTheme = ThemeData(
   bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Colors.black,
     unselectedItemColor: Colors.white,
-    selectedItemColor: ThemeColor.darkMainColorGreen,
+    selectedItemColor: ThemeColor.mainColor,
     elevation: 0,
   ),
   highlightColor: Colors.transparent,
-  splashColor: ThemeColor.darkSplashColor,
+  splashColor: ThemeColor.mainColorMid,
   textTheme: TextTheme(
     labelMedium: const TextStyle(
       color: Colors.white,

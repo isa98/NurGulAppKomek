@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
@@ -271,8 +272,8 @@ class ProductDetailScreen extends StatelessWidget {
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Image.asset(
-                                    'assets/icons/add_to_cart.png',
+                                  SvgPicture.asset(
+                                    'assets/icons/add_to_cart.svg',
                                     color: ThemeColor.white,
                                     height: 30.h,
                                     width: 30.w,
