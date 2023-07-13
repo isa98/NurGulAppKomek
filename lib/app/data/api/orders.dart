@@ -15,7 +15,8 @@ class OrdersApi {
 
       const String path = '${Constants.baseUrl}/customer/orders';
 
-      final response = await HttpUtil().get(path: path, queryParameters: params);
+      final response =
+          await HttpUtil().get(path: path, queryParameters: params);
 
       return OrderModel.listFromJson(response['data'] as List);
     } on DioError catch (error) {
@@ -24,7 +25,8 @@ class OrdersApi {
       int? errCode = error.response?.statusCode;
 
       if (errCode == 401) {
-        showSnack('general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
       }
 
       throw Exception('Error occurred');
@@ -48,9 +50,13 @@ class OrdersApi {
       final status = response['data']['status'];
       // show api message
       if (status) {
-        if (!isNullOrEmpty(response['message'])) showSnack('general_success'.tr, response['message'], SnackType.info);
+        if (!isNullOrEmpty(response['message'])) {
+          showSnack('general_success'.tr, 'order_saved'.tr, SnackType.info);
+        }
       } else {
-        if (!isNullOrEmpty(response['message'])) showSnack('general_error'.tr, response['message'], SnackType.error);
+        if (!isNullOrEmpty(response['message'])) {
+          showSnack('general_error'.tr, response['message'], SnackType.error);
+        }
       }
 
       return true;
@@ -62,11 +68,13 @@ class OrdersApi {
       if (errCode == 401) {
         Get.offNamedUntil('/', (route) => false);
         navigateToLoginScreen();
-        showSnack('general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
       }
       return false;
     } catch (e) {
-      debugPrint('ERROR: class: $className, method: $fnName, params: $params, error: $e ');
+      debugPrint(
+          'ERROR: class: $className, method: $fnName, params: $params, error: $e ');
       showSnack('general_error'.tr, 'general_error'.tr, SnackType.error);
       return false;
     }
@@ -98,7 +106,7 @@ class OrdersApi {
       String path = '${Constants.baseUrl}/customer/checkout/save-shipping';
 
       final response = await HttpUtil().post(path, data: params);
-      showSnack('general_success'.tr, response['message'], SnackType.info);
+      showSnack('general_success'.tr, 'shipping_saved'.tr, SnackType.info);
 
       return true;
     } on DioError catch (error) {
@@ -109,11 +117,13 @@ class OrdersApi {
       if (errCode == 401) {
         Get.offNamedUntil('/', (route) => false);
         navigateToLoginScreen();
-        showSnack('general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
       }
       return false;
     } catch (e) {
-      debugPrint('ERROR: class: $className, method: $fnName, params: $params, error: $e ');
+      debugPrint(
+          'ERROR: class: $className, method: $fnName, params: $params, error: $e ');
       // showSnack('general_error'.tr, 'general_error'.tr, SnackType.info);
       return false;
     }
@@ -128,7 +138,7 @@ class OrdersApi {
       String path = '${Constants.baseUrl}/customer/checkout/save-payment';
 
       final response = await HttpUtil().post(path, queryParameters: params);
-      showSnack('general_success'.tr, response['message'], SnackType.info);
+      showSnack('general_success'.tr, 'payment_saved'.tr, SnackType.info);
 
       return true;
     } on DioError catch (error) {
@@ -139,11 +149,13 @@ class OrdersApi {
       if (errCode == 401) {
         Get.offNamedUntil('/', (route) => false);
         navigateToLoginScreen();
-        showSnack('general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
+        showSnack(
+            'general_warning'.tr, 'general_please_login'.tr, SnackType.warning);
       }
       return false;
     } catch (e) {
-      debugPrint('ERROR: class: $className, method: $fnName, params: $params, error: $e ');
+      debugPrint(
+          'ERROR: class: $className, method: $fnName, params: $params, error: $e ');
       showSnack('general_error'.tr, 'general_error'.tr, SnackType.error);
       return false;
     }

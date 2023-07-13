@@ -177,7 +177,7 @@ class CartController extends GetxController {
       if (result) {
         Get.offNamedUntil('/', (route) => false);
 
-        Get.to(() => const OrdersScreen());
+        // Get.to(() => const OrdersScreen());
       }
     } else {
       // fetch payment methods

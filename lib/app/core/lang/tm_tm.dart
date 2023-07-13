@@ -29,6 +29,11 @@ const Map<String, String> tmTM = {
   'general_success': 'Üstünlik',
   'general_try_again': 'Täzeden synanyş',
   'general_warning': 'Duýduryş',
+  'payment_saved': 'Tölegiň görnüşi üstünlikli ýatda saklandy.',
+  'shipping_saved': 'Eltip bermegiň görnüşi üstünlikli ýatda saklandy.',
+  'order_saved': 'Siziň sargydyňyz üstünlikli ýatda saklandy.',
+  'Featured Products': 'Hödürlenýän önümler',
+  'New Products': 'Täze harytlar',
   'home_all': 'Hemmesi',
   'login_btn_txt': 'GIR',
   'login_not_member': 'Agza dälmi?',
@@ -150,6 +155,6 @@ const _privacyTextHtml =
 <p>Bizde saklanan şahsy maglumatlaryňyz hakda maglumat almaga hukugyňyz bardyr. Maglumatlaryňyz ýalňyş ýa-da doly däl bolsa, maglumatlaryňyzyň düzedilmegini ýa-da aýrylmagyny talap edip bilersiňiz. Biziň bilen aşakdaky ýollar arkaly habarlaşyp bilersiňiz:</p>
 <p><strong><u>Salgy:</u></strong>&nbsp;nurgul.com.tm</p>
 <p><strong><u>E-mail:</u></strong>&nbsp;flowerstorenurgul@gmail.com</p>
-<p><strong><u>Telefon:</u></strong>&nbsp;+99361748758 we +99364213234 (Müşderi Hyzmatlary, hepdäniň 7 güni 09:00 - 18:00 sagatlar arasynda hyzmat berýär.)</p>
+<p><strong><u>Telefon:</u></strong>&nbsp;+99364213234, +99361748758, +99363099247 (Müşderi Hyzmatlary, hepdäniň 7 güni 09:00 - 22:00 sagatlar arasynda hyzmat berýär.)</p>
 
 <p>Ýokarda ýazylan şertleri okadym, düşündim, kanuna we hukuklaryma laýyklykda hereket etjekdigime borçlanýaryn.</p></div>''';

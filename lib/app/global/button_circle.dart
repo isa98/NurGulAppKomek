@@ -19,7 +19,7 @@ class CircleButton extends StatelessWidget {
         child: Icon(
           GetPlatform.isIOS ? Icons.arrow_back_ios : Icons.arrow_back,
           size: 20,
-          color: Get.isDarkMode ? ThemeColor.darkMainColorGreen : ThemeColor.white,
+          color: Get.isDarkMode ? ThemeColor.mainColor : ThemeColor.white,
         ),
       ),
     );

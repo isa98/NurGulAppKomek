@@ -65,7 +65,7 @@ class HomeScreen extends StatelessWidget {
                                           children: [
                                             Expanded(
                                               child: Text(
-                                                section.title,
+                                                section.title.tr,
                                                 style: Get.theme.textTheme.titleMedium,
                                               ),
                                             ),

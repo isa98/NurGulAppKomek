@@ -25,10 +25,16 @@ class ProductDetailScreen extends StatelessWidget {
             overlayWidget: const CustomLoader(),
             child: Scaffold(
               appBar: AppBar(
-                leading: BackButton(color: Get.isDarkMode ? Get.theme.colorScheme.primary : ThemeColor.white),
+                leading: BackButton(
+                    color: Get.isDarkMode
+                        ? Get.theme.colorScheme.primary
+                        : ThemeColor.white),
                 title: Text(
                   model.name,
-                  style: TextStyle(color: ThemeColor.white, fontSize: 22.sp, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                      color: ThemeColor.white,
+                      fontSize: 22.sp,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
               body: SingleChildScrollView(
@@ -50,10 +56,13 @@ class ProductDetailScreen extends StatelessWidget {
                           fit: StackFit.expand,
                           children: [
                             ClipRRect(
-                              borderRadius: const BorderRadius.all(Radius.circular(16)),
+                              borderRadius:
+                                  const BorderRadius.all(Radius.circular(16)),
                               child: model.images.isNotEmpty
                                   ? CarouselSlider(
-                                      sliders: model.images.map((img) => img.originalImageUrl).toList(),
+                                      sliders: model.images
+                                          .map((img) => img.originalImageUrl)
+                                          .toList(),
                                       boxFit: BoxFit.scaleDown,
                                       activeColor: Get.theme.primaryColor,
                                       passiveColor: Colors.grey,
@@ -94,7 +103,8 @@ class ProductDetailScreen extends StatelessWidget {
                                 child: Container(
                                   padding: const EdgeInsets.all(2),
                                   decoration: BoxDecoration(
-                                    border: Border.all(color: ThemeColor.mainColor, width: 2),
+                                    border: Border.all(
+                                        color: ThemeColor.mainColor, width: 2),
                                     borderRadius: BorderRadius.circular(6),
                                   ),
                                   child: pc.state.product.value!.isWishlisted
@@ -137,7 +147,8 @@ class ProductDetailScreen extends StatelessWidget {
                             onPressed: pc.onDecTapped,
                           ),
                           SizedBox(width: 8.w),
-                          Text(pc.state.quantity.value.toString(), style: Get.theme.textTheme.bodyMedium),
+                          Text(pc.state.quantity.value.toString(),
+                              style: Get.theme.textTheme.bodyMedium),
                           SizedBox(width: 8.w),
                           CircleItemButton(
                             icon: Icon(
@@ -156,7 +167,9 @@ class ProductDetailScreen extends StatelessWidget {
                       // begin description part
                       Container(
                         decoration: BoxDecoration(
-                            color: Get.isDarkMode ? Get.theme.primaryColor : ThemeColor.white,
+                            color: Get.isDarkMode
+                                ? Get.theme.primaryColor
+                                : ThemeColor.white,
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(color: const Color(0xFFEBEBEB))
                             // boxShadow: [StyleConstants.boxShadow],
@@ -185,14 +198,17 @@ class ProductDetailScreen extends StatelessWidget {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'product_related_products'.tr.toUpperCase(),
+                                      'product_related_products'
+                                          .tr
+                                          .toUpperCase(),
                                       style: Get.theme.textTheme.titleMedium,
                                     ),
                                     const SizedBox(height: 8),
                                     SingleChildScrollView(
                                       scrollDirection: Axis.horizontal,
                                       child: Row(
-                                        children: pc.state.relatedProducts.map((product) {
+                                        children: pc.state.relatedProducts
+                                            .map((product) {
                                           return SizedBox(
                                             width: 200.w,
                                             child: ProductCard(model: product),
@@ -221,7 +237,9 @@ class ProductDetailScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Container(
-                          color: Get.isDarkMode ? const Color(0xFF151515) : const Color(0xFFFFB2CF),
+                          color: Get.isDarkMode
+                              ? const Color(0xFF151515)
+                              : const Color(0xFFFFB2CF),
                           child: model.hasDiscount
                               ? Center(
                                   child: Row(
@@ -231,7 +249,9 @@ class ProductDetailScreen extends StatelessWidget {
                                         child: Text(
                                           model.formattedPrice,
                                           style: TextStyle(
-                                            color: Get.isDarkMode ? ThemeColor.white : const Color(0xFF620024),
+                                            color: Get.isDarkMode
+                                                ? ThemeColor.white
+                                                : const Color(0xFF620024),
                                             fontWeight: FontWeight.w600,
                                             fontSize: 12.sp,
                                           ),
@@ -244,8 +264,11 @@ class ProductDetailScreen extends StatelessWidget {
                                           style: TextStyle(
                                             fontSize: 12.sp,
                                             fontWeight: FontWeight.w400,
-                                            decoration: TextDecoration.lineThrough,
-                                            color: Get.isDarkMode ? const Color(0xFFA7ADB7) : const Color(0xFFFF005E),
+                                            decoration:
+                                                TextDecoration.lineThrough,
+                                            color: Get.isDarkMode
+                                                ? const Color(0xFFA7ADB7)
+                                                : const Color(0xFFFF005E),
                                           ),
                                         ),
                                       ),
@@ -256,7 +279,9 @@ class ProductDetailScreen extends StatelessWidget {
                                   child: Text(
                                     '${(model.price * pc.state.quantity.value).toStringAsFixed(2)} TMT',
                                     style: TextStyle(
-                                        color: Get.isDarkMode ? ThemeColor.white : const Color(0xFF620024),
+                                        color: Get.isDarkMode
+                                            ? ThemeColor.white
+                                            : const Color(0xFF620024),
                                         fontWeight: FontWeight.w600,
                                         fontSize: 12.sp),
                                   ),
@@ -267,7 +292,7 @@ class ProductDetailScreen extends StatelessWidget {
                         child: InkWell(
                           onTap: () => pc.onAddToCartTapped(context),
                           child: Container(
-                            color: Get.isDarkMode ? const Color(0xFF06C876) : const Color(0xFFFF005E),
+                            color: const Color(0xFFFF005E),
                             child: Center(
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,

@@ -10,17 +10,29 @@ class RetryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
+      child: Stack(
         children: [
-          Icon(Icons.refresh, size: 50.sp),
-          const SizedBox(height: 10),
-          Text('retry_info_text'.tr),
-          const SizedBox(height: 10),
-          ElevatedButton(
-            onPressed: onRetry,
-            child: Text('retry_icon_text'.tr),
+          Image.asset(
+            'assets/images/no_inet.png',
+            fit: BoxFit.cover,
+            height: 0.6.sh,
+            width: 1.sw,
+          ),
+          Positioned(
+            left: 0.0,
+            bottom: 0.0,
+            child: Column(
+              children: [
+                Text('retry_info_title'.tr),
+                const SizedBox(height: 10),
+                Text('retry_info_text'.tr),
+                const SizedBox(height: 10),
+                ElevatedButton(
+                  onPressed: onRetry,
+                  child: Text('retry'.tr),
+                ),
+              ],
+            ),
           ),
         ],
       ),
