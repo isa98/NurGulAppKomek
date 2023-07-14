@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:nurgul/app/screens/splash/screen.dart';
 
 import '../../app.dart';
 
@@ -20,6 +21,9 @@ class AppPages {
     GetPage(name: AppRoutes.addresses, page: () => const AddressesScreen()),
     GetPage(name: AppRoutes.cms, page: () => const CMSScreen()),
     GetPage(name: AppRoutes.privacy, page: () => const PrivacyPolicyScreen()),
-    GetPage(name: AppRoutes.deliveryAndPayment, page: () => const DeliveryAndPaymentScreen()),
+    GetPage(
+        name: AppRoutes.deliveryAndPayment,
+        page: () => const DeliveryAndPaymentScreen()),
+    GetPage(name: AppRoutes.splash, page: () => const SplashScreen()),
   ];
 }

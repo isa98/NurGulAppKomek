@@ -68,7 +68,8 @@ class AppRoot extends StatelessWidget {
 class NurgulApp extends StatelessWidget {
   final bool isTurkmen;
   final ThemeMode themeMode;
-  const NurgulApp({super.key, required this.isTurkmen, required this.themeMode});
+  const NurgulApp(
+      {super.key, required this.isTurkmen, required this.themeMode});
 
   @override
   Widget build(BuildContext context) {
@@ -82,10 +83,11 @@ class NurgulApp extends StatelessWidget {
         return ScreenUtilInit(
           designSize: Size(constraints.maxWidth, constraints.maxHeight),
           builder: (_, child) => GetMaterialApp(
-            initialRoute: AppRoutes.dashboard,
+            initialRoute: AppRoutes.splash,
             getPages: AppPages.list,
             debugShowCheckedModeBanner: false,
-            locale: isTurkmen ? const Locale('tm', 'TM') : const Locale('ru', 'RU'),
+            locale:
+                isTurkmen ? const Locale('tm', 'TM') : const Locale('ru', 'RU'),
             fallbackLocale: LocalizationService.fallbackLocale,
             translations: LocalizationService(),
             localizationsDelegates: const [

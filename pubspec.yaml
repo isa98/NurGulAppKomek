@@ -42,13 +42,6 @@ dev_dependencies:
 
   flutter_lints: ^2.0.1
 
-flutter_native_splash:
-  image: assets/logo/dark_mode_logo.png
-  color: "#CC1055"  
-  android_12: 
-    color: "#CC1055"
-    image: assets/logo/dark_mode_logo.png
-
 flutter_launcher_icons:
   android: "launcher_icon"
   ios: true

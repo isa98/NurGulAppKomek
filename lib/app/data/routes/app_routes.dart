@@ -9,4 +9,5 @@ class AppRoutes {
   static const String privacy = '/privacy_policy';
   static const String deliveryAndPayment = '/delivery_and_payment';
   static const String productDetailScreen = '/ProductDetailScreen';
+  static const String splash = '/splash';
 }
