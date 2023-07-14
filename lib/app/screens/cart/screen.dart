@@ -32,7 +32,9 @@ class CartScreen extends StatelessWidget {
                           body: LoaderOverlay(
                             useDefaultLoading: false,
                             overlayWidget: const Center(child: CustomLoader()),
-                            child: cc.state.isOrdered.value ? const PaymentWidget() : const ProductListWidget(),
+                            child: cc.state.isOrdered.value
+                                ? const PaymentWidget()
+                                : const ProductListWidget(),
                           ),
                           bottomNavigationBar: const CartBottomNavbar(),
                         )
