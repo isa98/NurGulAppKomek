@@ -67,10 +67,10 @@ class ProductDetailController extends GetxController {
     state.isLoading.value = true;
 
     state.relatedProducts.clear();
-    final result = await ProductApi.getRelatedProducts(model.id);
-
-    if (result.isNotEmpty) state.relatedProducts.addAll(result);
-    state.isLoading.value = false;
+    await ProductApi.getRelatedProducts(model.id).then((value) {
+      if (value.isNotEmpty) state.relatedProducts.addAll(value);
+      state.isLoading.value = false;
+    });
   }
 
   Future<void> onAddToWishlistTapped(BuildContext context) async {

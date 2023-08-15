@@ -105,7 +105,7 @@ class OrdersApi {
 
       String path = '${Constants.baseUrl}/customer/checkout/save-shipping';
 
-      final response = await HttpUtil().post(path, data: params);
+      await HttpUtil().post(path, data: params);
       showSnack('general_success'.tr, 'shipping_saved'.tr, SnackType.info);
 
       return true;
@@ -137,7 +137,7 @@ class OrdersApi {
 
       String path = '${Constants.baseUrl}/customer/checkout/save-payment';
 
-      final response = await HttpUtil().post(path, queryParameters: params);
+      await HttpUtil().post(path, queryParameters: params);
       showSnack('general_success'.tr, 'payment_saved'.tr, SnackType.info);
 
       return true;
@@ -146,7 +146,7 @@ class OrdersApi {
 
       int? errCode = error.response?.statusCode;
 
-      if (errCode == 401) {
+      if (errCode == 401) { 
         Get.offNamedUntil('/', (route) => false);
         navigateToLoginScreen();
         showSnack(

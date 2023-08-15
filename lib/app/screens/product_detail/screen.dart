@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:loader_overlay/loader_overlay.dart';
 
 import '../../app.dart';
+import '../product/widgets/gallery_slider.dart';
 import 'controller.dart';
 
 class ProductDetailScreen extends StatelessWidget {
@@ -68,6 +69,19 @@ class ProductDetailScreen extends StatelessWidget {
                                       passiveColor: Colors.grey,
                                       onSliderTapped: (index) {
                                         debugPrint('image index $index');
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                GalleryCarouselSlider(
+                                              stringImages: model.images
+                                                  .map(
+                                                      (e) => e.originalImageUrl)
+                                                  .toList(),
+                                              index: 0,
+                                            ),
+                                          ),
+                                        );
                                       },
                                     )
                                   : cachedImageNetwork('', BoxFit.contain),

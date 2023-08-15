@@ -61,7 +61,9 @@ class PlaceholderImageWidget extends StatelessWidget {
         width: width,
         child: Center(
           child: Image.asset(
-            Get.isDarkMode ? 'assets/logo/placeholder_dark.png' : 'assets/logo/placeholder_light.png',
+            Get.isDarkMode
+                ? 'assets/logo/placeholder_dark.png'
+                : 'assets/logo/placeholder_light.png',
             fit: BoxFit.cover,
             height: height,
             width: width,
