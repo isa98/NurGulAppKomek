@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -38,7 +37,7 @@ Future<void> main() async {
 
   final String locale = await getLocale();
 
-  FlutterNativeSplash.remove();
+  // FlutterNativeSplash.remove();
 
   // FB functions needs to init after
   /// [FlutterNativeSplash.remove()]

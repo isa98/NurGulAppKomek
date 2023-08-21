@@ -10,7 +10,7 @@ class CategoriesWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetX<CategoryController>(
-      init: CategoryController(),
+      // init: CategoryController(),
       builder: (cc) {
         return cc.categoryState.isCategoryLoading.value
             ? const CustomLoader()

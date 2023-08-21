@@ -9,8 +9,8 @@ class ProductListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: const [
+    return const Column(
+      children: [
         Expanded(
           child: VendorListView(),
         ),
@@ -85,7 +85,8 @@ class CartItemWidget extends StatelessWidget {
         height: 108.h,
         padding: const EdgeInsets.all(8.0),
         decoration: BoxDecoration(
-          border: const Border(bottom: BorderSide(color: ThemeColor.dividerColor)),
+          border:
+              const Border(bottom: BorderSide(color: ThemeColor.dividerColor)),
           color: Get.isDarkMode ? ThemeColor.darkMainColor : ThemeColor.white,
         ),
         child: Row(
@@ -96,8 +97,10 @@ class CartItemWidget extends StatelessWidget {
               height: 90.h,
               width: 90.w,
               child: cachedImageNetwork(
-                item.product.images.isNotEmpty ? item.product.images.first.originalImageUrl : '',
-                BoxFit.contain,
+                item.product.images.isNotEmpty
+                    ? item.product.images.first.originalImageUrl
+                    : '',
+                BoxFit.cover,
               ),
             ),
             const SizedBox(width: 16),
@@ -148,10 +151,12 @@ class CartItemWidget extends StatelessWidget {
                               size: 18.sp,
                               color: Get.theme.colorScheme.primary,
                             ),
-                            onPressed: () => cc.onIncDecTapped(context, item.id, item.quantity - 1),
+                            onPressed: () => cc.onIncDecTapped(
+                                context, item.id, item.quantity - 1),
                           ),
                           SizedBox(width: 8.w),
-                          Text(item.quantity.toString(), style: Get.theme.textTheme.bodyMedium),
+                          Text(item.quantity.toString(),
+                              style: Get.theme.textTheme.bodyMedium),
                           SizedBox(width: 8.w),
                           CircleItemButton(
                             icon: Icon(
@@ -159,7 +164,8 @@ class CartItemWidget extends StatelessWidget {
                               size: 18.sp,
                               color: Get.theme.colorScheme.primary,
                             ),
-                            onPressed: () => cc.onIncDecTapped(context, item.id, item.quantity + 1),
+                            onPressed: () => cc.onIncDecTapped(
+                                context, item.id, item.quantity + 1),
                           ),
                         ],
                       ),
@@ -172,7 +178,9 @@ class CartItemWidget extends StatelessWidget {
                                 item.formattedPrice,
                                 maxLines: 1,
                                 style: TextStyle(
-                                  color: Get.isDarkMode ? ThemeColor.white : const Color(0xFF620024),
+                                  color: Get.isDarkMode
+                                      ? ThemeColor.white
+                                      : const Color(0xFF620024),
                                   fontWeight: FontWeight.w600,
                                   fontSize: 12.sp,
                                 ),
@@ -184,7 +192,9 @@ class CartItemWidget extends StatelessWidget {
                                   item.formattedDiscountAmount ?? '0',
                                   maxLines: 1,
                                   style: TextStyle(
-                                    color: Get.isDarkMode ? ThemeColor.white : const Color(0xFF620024),
+                                    color: Get.isDarkMode
+                                        ? ThemeColor.white
+                                        : const Color(0xFF620024),
                                     fontWeight: FontWeight.w600,
                                     fontSize: 11.sp,
                                     decoration: TextDecoration.lineThrough,

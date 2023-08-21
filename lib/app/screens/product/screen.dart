@@ -13,6 +13,7 @@ class ProductListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final title = params['title'] as String;
     return Scaffold(
       appBar: AppBar(
         leading: const CircleButton(),
@@ -47,7 +48,7 @@ class ProductListScreen extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.fromLTRB(16, 16, 16, 24),
                     child: Text(
-                      params['title'] ?? '',
+                      title.tr,
                       style: TextStyle(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
@@ -64,15 +65,19 @@ class ProductListScreen extends StatelessWidget {
                                 controller: plc.scroll,
                                 physics: const AlwaysScrollableScrollPhysics(),
                                 crossAxisCount: context.isTablet ? 3 : 2,
-                                padding: EdgeInsets.fromLTRB(8, 0, 8, Get.bottomBarHeight),
+                                padding: EdgeInsets.fromLTRB(
+                                    8, 0, 8, Get.bottomBarHeight),
                                 mainAxisSpacing: 4,
                                 crossAxisSpacing: 4,
-                                itemCount: plc.productState.repositories.length + 1,
+                                itemCount:
+                                    plc.productState.repositories.length + 1,
                                 itemBuilder: (context, index) {
                                   if (index < state.length) {
-                                    final product = plc.productState.repositories[index];
+                                    final product =
+                                        plc.productState.repositories[index];
                                     return ProductCard(model: product);
-                                  } else if (index == state.length && !isLastPage) {
+                                  } else if (index == state.length &&
+                                      !isLastPage) {
                                     return GridViewLoadMoreWidget(index: index);
                                   } else {
                                     return const SizedBox.shrink();

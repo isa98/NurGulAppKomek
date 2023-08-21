@@ -102,7 +102,7 @@ const Map<String, String> tmTM = {
 };
 
 const _aboutUsText =
-    'Indi “Nur Gül” programmasynyň kömegi bilen gül saýlamak we sargyt etmek has aňsatlaşdy.\n "Nur Gül", gülçüleri we gül bezeglerini satyn alyp boljak özboluşly platforma, hünärmen gülçüler tarapyndan öz islegiňize görä ýygnalýar. Amatly işlemek we programmanyň aýdyň interfeýsi täze we kepillendirilen ýokary hilli önümleri çalt we aňsat sargyt etmäge kömek eder. Size iň amatly töleg usulyny (kartdan ýa-da nagt) saýlamak bilen, eltip berijiniň hemme zady iň oňat we mümkin boldugyça gysga wagtda eltip biljekdigine ynanyp bilersiňiz.\n Maslahat üçin hünärmenlerimiz bilen habarlaşyp bilersiňiz, olar diňe bir saýlamaga kömek etmän, eýsem islendik mukdarda kompozisiýa üçin iň oňat görnüşleri hem hödürlärler.';
+    'Indi “Nur Gül” programmasynyň kömegi bilen lybas saýlamak we sargyt etmek has aňsatlaşdy.\n"Nur Gül"- bu lybaslary satyn alyp boljak özboluşly platforma, hünärmen lybacçylar tarapyndan öz islegiňize görä ýygnalýar. Amatly işlemek we programmanyň aýdyň interfeýsi täze we kepillendirilen ýokary hilli önümleri çalt we aňsat sargyt etmäge kömek eder. Size iň amatly töleg usulyny (kartdan ýa-da nagt) saýlamak bilen, eltip berijiniň hemme zady iň oňat we mümkin boldugyça gysga wagtda eltip biljekdigine ynanyp bilersiňiz.\nMaslahat üçin hünärmenlerimiz bilen habarlaşyp bilersiňiz, olar diňe bir saýlamaga kömek etmän, eýsem islendik mukdarda kompozisiýa üçin iň oňat görnüşleri hem hödürlärler.';
 
 const _deliveryTextHtml =
     '''<div class="delivery_and_payment"><p><strong>Eltip bermek we töleg tertibi:</strong></p>

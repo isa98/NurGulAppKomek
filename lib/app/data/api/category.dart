@@ -14,18 +14,21 @@ class CategoryApi {
     _brands.clear();
   }
 
-  static Future<List<CategoryModel>> getCategories(Map<String, dynamic> params) async {
+  static Future<List<CategoryModel>> getCategories(
+      Map<String, dynamic> params) async {
     const fnName = 'getCategories';
 
     if (_categories.isEmpty) {
       try {
         const String path = '${Constants.baseUrl}/descendant-categories';
 
-        final response = await HttpUtil().get(path: path, queryParameters: params);
+        final response =
+            await HttpUtil().get(path: path, queryParameters: params);
 
         List list = response['data'] as List;
 
-        final List<CategoryModel> categories = CategoryModel.listFromJson(list.first['children']);
+        final List<CategoryModel> categories =
+            CategoryModel.listFromJson(list.first['children']);
 
         _categories.addAll(categories);
 
@@ -41,22 +44,25 @@ class CategoryApi {
   static Future<List<BrandModel>> getBrands(Map<String, dynamic> params) async {
     const fnName = 'getBrands';
 
-    if (_brands.isEmpty) {
-      try {
-        const String path = '${Constants.baseUrl}/attribute-options';
+    try {
+      const String path = '${Constants.baseUrl}/attribute-options';
 
-        final response = await HttpUtil().get(path: path);
+      final response =
+          await HttpUtil().get(path: path, queryParameters: params);
 
-        final List<BrandModel> brands = BrandModel.listFromJson(response['data']);
+      final List<BrandModel> brands = BrandModel.listFromJson(response['data']);
+      _brands.clear();
+      _brands.addAll(brands);
 
-        _brands.addAll(brands);
-
-        return [..._brands];
-      } catch (error) {
-        debugPrint('$className $fnName error: $error ');
-        return [];
-      }
+      return _brands;
+    } catch (error) {
+      debugPrint('$className $fnName error: $error ');
+      return [];
     }
-    return [..._brands];
+
+    // if (_brands.isEmpty) {
+
+    // }
+    // return [..._brands];
   }
 }

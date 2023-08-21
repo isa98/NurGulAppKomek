@@ -5,7 +5,10 @@ import '../../app.dart';
 import 'state.dart';
 
 class CategoryController extends GetxController
-    with StateMixin<List<BrandModel>>, ScrollMixin, GetTickerProviderStateMixin {
+    with
+        StateMixin<List<BrandModel>>,
+        ScrollMixin,
+        GetTickerProviderStateMixin {
   final categoryState = CategoryState();
 
   @override
@@ -31,7 +34,8 @@ class CategoryController extends GetxController
   Future<void> _onTabSelected() async {
     debugPrint('_onTabSelected');
     if (categoryState.tabController.indexIsChanging) {
-      debugPrint('tab is animating. from active (getting the index) to inactive(getting the index) ');
+      debugPrint(
+          'tab is animating. from active (getting the index) to inactive(getting the index) ');
     } else {
       //tab is finished animating you get the current index
       //here you can get your index or run some method once.
@@ -69,10 +73,10 @@ class CategoryController extends GetxController
 
   Future<void> _fetchBrands() async {
     final Map<String, dynamic> params = {
-      'currency': 'TMT',
+      // 'currency': 'TMT',
       'locale': await getLocale(),
       'page': categoryState.page,
-      'limit': Constants.pageSize,
+      'limit': Constants.pageSize.toString(),
     };
 
     await CategoryApi.getBrands(params).then(
@@ -86,7 +90,9 @@ class CategoryController extends GetxController
           categoryState.getFirstData = true;
           categoryState.brands.addAll(result);
 
-          if (result.length < Constants.pageSize) categoryState.lastPage.value = true;
+          if (result.length < Constants.pageSize) {
+            categoryState.lastPage.value = true;
+          }
 
           change(categoryState.brands, status: RxStatus.success());
         }
@@ -124,7 +130,7 @@ class CategoryController extends GetxController
   Future<void> onEndScroll() async {
     if (!categoryState.lastPage.value) {
       categoryState.page += 1;
-      await _fetchBrands();
+      _fetchBrands();
     }
   }
 
