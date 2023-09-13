@@ -67,7 +67,7 @@ class ProductDetailController extends GetxController {
     state.isLoading.value = true;
 
     state.relatedProducts.clear();
-    await ProductApi.getRelatedProducts(model.id).then((value) {
+    await ProductApi.getRelatedProducts(model.categories.first.id).then((value) {
       if (value.isNotEmpty) state.relatedProducts.addAll(value);
       state.isLoading.value = false;
     });

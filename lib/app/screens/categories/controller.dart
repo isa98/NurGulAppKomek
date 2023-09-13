@@ -47,10 +47,11 @@ class CategoryController extends GetxController
   }
 
   void onBrandTapped(BrandModel brand) {
-    debugPrint('brand ${brand.label}, ID: ${brand.id}');
+    debugPrint('brand ${brand.shopTitle}, ID: ${brand.id}');
     final Map<String, dynamic> params = {
-      'brands': brand.id,
-      'title': brand.label,
+      'title': brand.shopTitle,
+      'vendorId': brand.id,
+      'type': 'vendor'
     };
     Get.toNamed(AppRoutes.productList, arguments: params);
   }
@@ -108,6 +109,7 @@ class CategoryController extends GetxController
     final Map<String, dynamic> params = {
       'category': category.id,
       'title': category.name,
+      'type': 'category'
     };
     Get.toNamed(AppRoutes.productList, arguments: params);
   }

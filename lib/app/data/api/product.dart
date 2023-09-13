@@ -55,4 +55,21 @@ class ProductApi {
       throw Exception('Error occurred');
     }
   }
+
+  static Future<List<ProductModel>> getVendorProducts(int vendorId, Map<String, dynamic> params) async {
+    const String fnName = 'getVendorProducts';
+
+    try {
+      debugPrint('class: $className, method: $fnName, params: $params');
+
+      String path = '${Constants.baseUrl}/vendor/products/$vendorId';
+
+      final response = await HttpUtil().get(path: path, queryParameters: params);
+
+      return ProductModel.listFromJson(response['data'] as List);
+    } catch (e) {
+      debugPrint('ERROR: class: $className, method: $fnName, params: $params, error: $e ');
+      throw Exception('Error occurred');
+    }
+  }
 }

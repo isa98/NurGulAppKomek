@@ -48,8 +48,8 @@ class BrandsWidget extends StatelessWidget {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(16)),
                                 child: cachedImageNetwork(
-                                  cc.categoryState.brands[index].image,
-                                  BoxFit.contain,
+                                  cc.categoryState.brands[index].logo,
+                                  BoxFit.cover,
                                 ),
                               ),
                             ),
@@ -67,7 +67,7 @@ class BrandsWidget extends StatelessWidget {
                   ),
                 )
               : RetryWidget(onRetry: cc.getCategories),
-          onLoading: const Column(
+          onLoading: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [

@@ -65,7 +65,7 @@ class _ProductCardState extends State<ProductCard> {
                     widget.model.images.isNotEmpty
                         ? widget.model.images.first.originalImageUrl
                         : '',
-                    BoxFit.fill,
+                    BoxFit.cover,
                     const BorderRadius.all(Radius.circular(4.0)),
                     1.sw,
                     150.h,

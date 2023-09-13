@@ -7,7 +7,8 @@ import '../../app.dart';
 
 import 'state.dart';
 
-class ProductController extends GetxController with StateMixin<List<ProductModel>>, ScrollMixin {
+class ProductController extends GetxController
+    with StateMixin<List<ProductModel>>, ScrollMixin {
   final productState = ProductState();
 
   final Map<String, dynamic> params;
@@ -44,32 +45,59 @@ class ProductController extends GetxController with StateMixin<List<ProductModel
       'limit': Constants.pageSize,
     };
 
+    var excludeKeys = ['title', 'type', 'vendorId'];
+
     params.forEach((key, value) {
-      if (key != 'title') queryParams[key] = value;
+      if (!excludeKeys.contains(key)) queryParams[key] = value;
     });
 
     debugPrint('params $queryParams');
 
-    await ProductApi.get(queryParams).then(
-      (result) {
-        final bool emptyRepositories = result.isEmpty;
-        if (!productState.getFirstData && emptyRepositories) {
-          change(null, status: RxStatus.empty());
-        } else if (productState.getFirstData && emptyRepositories) {
-          productState.lastPage.value = true;
-        } else {
-          productState.getFirstData = true;
-          productState.repositories.addAll(result);
+    if (params['type'] == 'vendor') {
+      await ProductApi.getVendorProducts(params['vendorId'], queryParams).then(
+        (result) {
+          final bool emptyRepositories = result.isEmpty;
+          if (!productState.getFirstData && emptyRepositories) {
+            change(null, status: RxStatus.empty());
+          } else if (productState.getFirstData && emptyRepositories) {
+            productState.lastPage.value = true;
+          } else {
+            productState.getFirstData = true;
+            productState.repositories.addAll(result);
 
-          if (result.length < Constants.pageSize) productState.lastPage.value = true;
+            if (result.length < Constants.pageSize)
+              productState.lastPage.value = true;
 
-          change(productState.repositories, status: RxStatus.success());
-        }
-      },
-      onError: (err) {
-        change(null, status: RxStatus.error(err.toString()));
-      },
-    );
+            change(productState.repositories, status: RxStatus.success());
+          }
+        },
+        onError: (err) {
+          change(null, status: RxStatus.error(err.toString()));
+        },
+      );
+    } else {
+      await ProductApi.get(queryParams).then(
+        (result) {
+          final bool emptyRepositories = result.isEmpty;
+          if (!productState.getFirstData && emptyRepositories) {
+            change(null, status: RxStatus.empty());
+          } else if (productState.getFirstData && emptyRepositories) {
+            productState.lastPage.value = true;
+          } else {
+            productState.getFirstData = true;
+            productState.repositories.addAll(result);
+
+            if (result.length < Constants.pageSize)
+              productState.lastPage.value = true;
+
+            change(productState.repositories, status: RxStatus.success());
+          }
+        },
+        onError: (err) {
+          change(null, status: RxStatus.error(err.toString()));
+        },
+      );
+    }
   }
 
   Future<void> refreshList() async {

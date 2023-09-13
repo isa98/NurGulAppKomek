@@ -5,6 +5,7 @@ class ProductModel {
   late String type;
   late String name;
   late String formattedPrice;
+  late List<CategoryModel> categories;
   late List<ProductImage> images;
   late List<ProductAttribute> attributes;
   late bool inStock;
@@ -34,6 +35,15 @@ class ProductModel {
     shortDescription = json['short_description'] ?? '';
     description = json['description'] ?? '';
     optionValue = json['option_value'];
+
+    if (json['categories'] != null) {
+      categories = [];
+      json['categories'].forEach((v) {
+        categories.add(CategoryModel.fromJson(v));
+      });
+    } else {
+      categories = [];
+    }
 
     if (json['images'] != null) {
       images = [];

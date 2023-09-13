@@ -45,7 +45,7 @@ class CategoryApi {
     const fnName = 'getBrands';
 
     try {
-      const String path = '${Constants.baseUrl}/attribute-options';
+      const String path = '${Constants.baseUrl}/vendors';
 
       final response =
           await HttpUtil().get(path: path, queryParameters: params);
